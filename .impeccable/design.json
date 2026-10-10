@@ -1,0 +1,359 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-10T00:00:00Z",
+  "title": "Design System: Opsis",
+  "extensions": {
+    "colorMeta": {
+      "pentelic-marble": {
+        "role": "neutral",
+        "displayName": "Pentelic Marble",
+        "canonical": "oklch(92.5% 0.010 93.6)",
+        "tonalRamp": [
+          "#0C0B07",
+          "#272520",
+          "#44423C",
+          "#63615B",
+          "#84827C",
+          "#A7A59E",
+          "#CBC9C2",
+          "#F0EEE7"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "oklch(18.8% 0.013 248.5)",
+        "tonalRamp": [
+          "#070C10",
+          "#20262B",
+          "#3D4349",
+          "#5C6268",
+          "#7D838A",
+          "#9FA6AD",
+          "#C3CAD1",
+          "#E8EFF7"
+        ]
+      },
+      "cinnabar": {
+        "role": "primary",
+        "displayName": "Cinnabar",
+        "canonical": "oklch(51.4% 0.173 31.8)",
+        "tonalRamp": [
+          "#2F0000",
+          "#560000",
+          "#7F0900",
+          "#AA2F1C",
+          "#D5503A",
+          "#F97A63",
+          "#FFA28B",
+          "#FFCBB5"
+        ]
+      },
+      "cinnabar-lift": {
+        "role": "primary",
+        "displayName": "Cinnabar Lift",
+        "canonical": "oklch(63.0% 0.179 33.0)",
+        "tonalRamp": [
+          "#300000",
+          "#570000",
+          "#810300",
+          "#AC2D13",
+          "#D84E33",
+          "#FB785E",
+          "#FFA187",
+          "#FFCAB1"
+        ]
+      },
+      "slate": {
+        "role": "neutral",
+        "displayName": "Slate",
+        "canonical": "oklch(48.7% 0.015 255.6)",
+        "tonalRamp": [
+          "#070B11",
+          "#20252C",
+          "#3D424A",
+          "#5C626A",
+          "#7D838B",
+          "#9FA6AE",
+          "#C3CAD3",
+          "#E8EFF9"
+        ]
+      },
+      "ash": {
+        "role": "neutral",
+        "displayName": "Ash",
+        "canonical": "oklch(73.6% 0.012 256.7)",
+        "tonalRamp": [
+          "#080B10",
+          "#21252B",
+          "#3E4248",
+          "#5D6268",
+          "#7E8389",
+          "#A0A5AC",
+          "#C4CAD1",
+          "#EAEFF6"
+        ]
+      },
+      "marble-deep": {
+        "role": "neutral",
+        "displayName": "Marble Deep",
+        "canonical": "oklch(89.1% 0.013 91.5)",
+        "tonalRamp": [
+          "#0D0B06",
+          "#27251E",
+          "#44423B",
+          "#646159",
+          "#85827A",
+          "#A8A59C",
+          "#CCC9C0",
+          "#F1EEE5"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Ink Soft",
+        "canonical": "oklch(30.8% 0.016 259.8)",
+        "tonalRamp": [
+          "#070B12",
+          "#20252D",
+          "#3D424B",
+          "#5C626B",
+          "#7D838C",
+          "#9FA5AF",
+          "#C3CAD4",
+          "#E8EFFA"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Rule",
+        "canonical": "oklch(80.8% 0.016 90.3)",
+        "tonalRamp": [
+          "#0E0B05",
+          "#28251C",
+          "#454239",
+          "#656157",
+          "#868278",
+          "#A9A59A",
+          "#CDC9BE",
+          "#F2EEE3"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Week lead headline only; serif 600."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Article and standalone page h1."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section heads, data band headline, in-prose h2."
+      },
+      "headline-sm": {
+        "displayName": "Headline Small",
+        "purpose": "Contents and register titles, apparatus heads, method items."
+      },
+      "dek": {
+        "displayName": "Dek",
+        "purpose": "Standfirst under every headline, in Ink Soft."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Reading text, measure 68ch."
+      },
+      "body-small": {
+        "displayName": "Small",
+        "purpose": "Nav, chart rows, apparatus, footer."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Mono source lines, dates, counts; uppercase. 0.07em tracking below 640px."
+      },
+      "numeral": {
+        "displayName": "Numeral",
+        "purpose": "Mono chart values and index numerals."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Curve for the load draw of hairlines and chart bars."
+      },
+      {
+        "name": "dur-draw",
+        "value": "900ms",
+        "purpose": "Hairline draw (background-size 0 to 100%, staggered 45ms per row after 120ms) and bar grow (scaleX from 0.02, 220ms delay); once on load, only under prefers-reduced-motion: no-preference."
+      },
+      {
+        "name": "dur-quick",
+        "value": "160ms",
+        "purpose": "Hover transitions: nav underline colour, arrow 3px nudge."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "stack-mobile",
+        "value": "640px"
+      },
+      {
+        "name": "table-reflow",
+        "value": "720px"
+      },
+      {
+        "name": "footer-stack",
+        "value": "760px"
+      },
+      {
+        "name": "spread-stack",
+        "value": "960px"
+      }
+    ],
+    "lines": [
+      {
+        "name": "hair",
+        "value": "1px",
+        "purpose": "All structural rules; ink for section boundaries, rule grey between rows. Closing rules drawn as inset 0 -1px 0 box-shadow; top rules as a 1px background-image so they can draw."
+      },
+      {
+        "name": "focus",
+        "value": "2px solid cinnabar, offset 3px",
+        "purpose": "Focus ring on every interactive element."
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Masthead Navigation",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Wordmark tagline and three text links on an ink base rule; cinnabar underline marks the current page.",
+      "html": "<header class=\"ds-mast\"><span class=\"ds-tag\">Καθαρή ματιά</span><nav><a href=\"#\" aria-current=\"page\">Η εβδομάδα</a><a href=\"#\">Αρχείο</a><a href=\"#\">Μέθοδος</a></nav></header>",
+      "css": ".ds-mast { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; min-height: 4.75rem; border-bottom: 1px solid var(--c-ink, #0F1419); background: var(--c-marble, #E8E6DF); color: var(--c-ink, #0F1419); padding-inline: 1rem; } .ds-tag { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.32em; text-transform: uppercase; color: var(--c-slate, #5A6068); } .ds-mast nav { display: flex; gap: 2rem; } .ds-mast a { font-family: var(--font-text); font-size: 0.9375rem; font-weight: 500; color: inherit; text-decoration: none; padding: 0.5rem 0; border-bottom: 1.5px solid transparent; transition: border-color 160ms ease-out; } .ds-mast a:hover { border-color: var(--c-ink, #0F1419); } .ds-mast a[aria-current='page'] { border-color: var(--c-cinnabar, #B5301B); } .ds-mast a:focus-visible { outline: 2px solid var(--c-cinnabar, #B5301B); outline-offset: 3px; }"
+    },
+    {
+      "name": "Source Line",
+      "kind": "custom",
+      "refersTo": "source-line",
+      "description": "Signature mono line under every headline: type, date, source in ink, processing note.",
+      "html": "<p class=\"ds-source\"><span class=\"ds-meta\">Ανάλυση · 10.10.26 · </span>Πηγή: <strong>ΤΑ ΝΕΑ, IEFIMERIDA</strong> · Επεξεργασία: Opsis</p>",
+      "css": ".ds-source { font-family: var(--font-mono); font-size: var(--fs-label); letter-spacing: var(--track-label); text-transform: uppercase; color: var(--fg-muted); font-variant-numeric: tabular-nums; margin: 0; } .ds-source strong, .ds-source .ds-meta { font-weight: 500; color: var(--c-ink, #0F1419); }"
+    },
+    {
+      "name": "Headline with Key Figure",
+      "kind": "custom",
+      "refersTo": "key-figure",
+      "description": "Serif 600 headline link; the piece's one number in cinnabar; 2px cinnabar underline on hover.",
+      "html": "<h2 class=\"ds-head\"><a href=\"#\">Ελπίδα για τη Δημοκρατία: <em>5,2%</em> στην πρώτη μέτρηση</a></h2>",
+      "css": ".ds-head { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.5rem, 1.3rem + 0.8vw, 2rem); line-height: 1.2; color: var(--c-ink, #0F1419); margin: 0; text-wrap: balance; } .ds-head a { color: inherit; text-decoration: none; } .ds-head a:hover { text-decoration: underline; text-decoration-thickness: 2px; text-decoration-color: var(--c-cinnabar, #B5301B); } .ds-head a:focus-visible { outline: 2px solid var(--c-cinnabar, #B5301B); outline-offset: 3px; } .ds-head em { font-style: normal; color: var(--c-cinnabar, #B5301B); }"
+    },
+    {
+      "name": "Read Link",
+      "kind": "button",
+      "refersTo": "nav-link",
+      "description": "The system's only action form: underlined Plex 500 text with a hairline SVG arrow.",
+      "html": "<a class=\"ds-read\" href=\"#\">Διάβασε την ανάλυση<svg class=\"ds-arrow\" viewBox=\"0 0 16 10\" width=\"16\" height=\"10\" aria-hidden=\"true\"><path d=\"M0.5 5 H14.5 M10.5 1 L14.5 5 L10.5 9\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.25\" stroke-linecap=\"square\"/></svg></a>",
+      "css": ".ds-read { display: inline-block; font-family: var(--font-text); font-weight: 500; color: var(--c-ink, #0F1419); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; } .ds-read:hover { text-decoration-color: var(--c-cinnabar, #B5301B); } .ds-read:focus-visible { outline: 2px solid var(--c-cinnabar, #B5301B); outline-offset: 3px; } .ds-arrow { display: inline-block; vertical-align: 0.05em; margin-inline: 0.4em 0.1em; transition: transform 160ms ease-out; } .ds-read:hover .ds-arrow { transform: translateX(3px); }"
+    },
+    {
+      "name": "Contents List",
+      "kind": "custom",
+      "refersTo": "index-numeral",
+      "description": "Issue index with cinnabar mono numerals, serif titles, mono meta, rule-grey hairlines.",
+      "html": "<ol class=\"ds-contents\"><li><a href=\"#\"><span class=\"ds-n\">01</span><span class=\"ds-b\"><span class=\"ds-t\">Ίδια πρόσωπα, άλλη φανέλα</span><span class=\"ds-m\">Ανάλυση · ΤΑ ΝΕΑ</span></span></a></li><li><a href=\"#\"><span class=\"ds-n\">02</span><span class=\"ds-b\"><span class=\"ds-t\">Μέτρα ΔΕΘ: το 48% λέει ότι δεν ωφελείται</span><span class=\"ds-m\">Δεδομένα · Alco, 9.2026</span></span></a></li></ol>",
+      "css": ".ds-contents { list-style: none; margin: 0; padding: 0; } .ds-contents li { border-top: 1px solid var(--c-rule, #C4C0B5); } .ds-contents li:last-child { box-shadow: inset 0 -1px 0 var(--c-rule, #C4C0B5); } .ds-contents a { display: grid; grid-template-columns: 2.5rem 1fr; gap: 0.75rem; padding: 1rem 0; color: var(--c-ink, #0F1419); text-decoration: none; } .ds-n { font-family: var(--font-mono); font-size: 0.8125rem; color: var(--c-cinnabar, #B5301B); padding-top: 0.35em; font-variant-numeric: tabular-nums; } .ds-b { display: flex; flex-direction: column; gap: 0.5rem; } .ds-t { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.1875rem, 1.08rem + 0.45vw, 1.5rem); line-height: 1.2; } .ds-m { font-family: var(--font-mono); font-size: var(--fs-label); letter-spacing: var(--track-label); text-transform: uppercase; color: var(--fg-muted); font-variant-numeric: tabular-nums; } .ds-contents a:hover .ds-t { text-decoration: underline; text-decoration-color: var(--c-cinnabar, #B5301B); text-decoration-thickness: 1.5px; } .ds-contents a:focus-visible { outline: 2px solid var(--c-cinnabar, #B5301B); outline-offset: 3px; }"
+    },
+    {
+      "name": "Register Row",
+      "kind": "custom",
+      "refersTo": "register-row-hover",
+      "description": "Dated archive table: mono date and type, serif title, source right-aligned; marble-deep row hover.",
+      "html": "<table class=\"ds-reg\"><thead><tr><th>Ημερομηνία</th><th>Είδος</th><th>Θέμα</th><th class=\"ds-src\">Πηγή</th></tr></thead><tbody><tr><td class=\"ds-mono\">10.10.26</td><td class=\"ds-mono ds-kind\">Ανάλυση</td><th><a href=\"#\">Ίδια πρόσωπα, άλλη φανέλα</a></th><td class=\"ds-mono ds-src\">ΤΑ ΝΕΑ, IEFIMERIDA</td></tr></tbody></table>",
+      "css": ".ds-reg { width: 100%; border-collapse: collapse; color: var(--c-ink, #0F1419); } .ds-reg thead tr { box-shadow: inset 0 -1px 0 var(--c-ink, #0F1419); } .ds-reg thead th, .ds-mono { font-family: var(--font-mono); font-size: var(--fs-label); letter-spacing: var(--track-label); text-transform: uppercase; color: var(--fg-muted); font-variant-numeric: tabular-nums; font-weight: 400; text-align: left; } .ds-reg thead th { padding: 0 1.5rem 0.75rem 0; } .ds-reg td, .ds-reg tbody th { padding: 1rem 1.5rem 1rem 0; vertical-align: baseline; text-align: left; border-top: 1px solid var(--c-rule, #C4C0B5); } .ds-reg tbody th { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.1875rem, 1.08rem + 0.45vw, 1.5rem); line-height: 1.2; } .ds-reg tbody th a { color: inherit; text-decoration: none; } .ds-reg tbody th a:hover { text-decoration: underline; text-decoration-thickness: 2px; text-decoration-color: var(--c-cinnabar, #B5301B); } .ds-reg .ds-kind { color: var(--c-ink, #0F1419); } .ds-reg .ds-src { text-align: right; padding-right: 0; } .ds-reg tbody tr:hover { background-color: var(--c-marble-deep, #DEDBD2); }"
+    },
+    {
+      "name": "Bar Figure",
+      "kind": "custom",
+      "refersTo": "bar-highlight",
+      "description": "Chart as accessible table: ink bars, ash reference, one cinnabar highlighted row, mono values and source.",
+      "html": "<figure class=\"ds-fig\"><table><caption>Εκτίμηση ψήφου, %</caption><tbody><tr><th>ΝΔ</th><td class=\"ds-bar\"><span style=\"--w:100%\"></span></td><td class=\"ds-val\">30,1%</td></tr><tr class=\"ds-ref\"><th>ΚΚΕ</th><td class=\"ds-bar\"><span style=\"--w:23%\"></span></td><td class=\"ds-val\">6,9%</td></tr><tr class=\"ds-hl\"><th>Ελπίδα για τη Δημοκρατία</th><td class=\"ds-bar\"><span style=\"--w:17%\"></span></td><td class=\"ds-val\">5,2%</td></tr></tbody></table><figcaption>Πηγή: Palmos Analysis, 9.2026</figcaption></figure>",
+      "css": ".ds-fig { margin: 0; color: var(--c-ink, #0F1419); font-family: var(--font-text); } .ds-fig table { width: 100%; border-collapse: collapse; } .ds-fig caption { text-align: left; font-weight: 600; font-size: 0.9375rem; padding-bottom: 0.75rem; } .ds-fig th { text-align: left; font-weight: 400; font-size: 0.9375rem; padding: 0.25rem 0.75rem 0.25rem 0; white-space: nowrap; width: 1%; } .ds-bar { width: 100%; padding: 0.25rem 0; } .ds-bar span { display: block; height: 0.875rem; width: var(--w); background: var(--c-ink, #0F1419); } .ds-val { font-family: var(--font-mono); font-size: 0.8125rem; text-align: right; padding-left: 0.75rem; font-variant-numeric: tabular-nums; } .ds-ref .ds-bar span { background: var(--c-ash, #A5AAB1); } .ds-hl th, .ds-hl .ds-val { font-weight: 600; } .ds-hl .ds-val { color: var(--c-cinnabar, #B5301B); } .ds-hl .ds-bar span { background: var(--c-cinnabar, #B5301B); } .ds-fig figcaption { margin-top: 0.75rem; font-family: var(--font-mono); font-size: var(--fs-label); letter-spacing: var(--track-label); text-transform: uppercase; color: var(--fg-muted); font-variant-numeric: tabular-nums; }"
+    },
+    {
+      "name": "Sample Notice",
+      "kind": "custom",
+      "refersTo": "sample-notice",
+      "description": "Full-width marble-deep strip marking sample content.",
+      "html": "<p class=\"ds-notice\" role=\"note\">Δείγμα. Τα θέματα και οι πηγές είναι πραγματικά, οι ημερομηνίες και οι σελίδες είναι δοκιμαστικές.</p>",
+      "css": ".ds-notice { margin: 0; background: var(--c-marble-deep, #DEDBD2); color: var(--c-ink-soft, #2B3038); font-family: var(--font-text); font-size: 0.8125rem; padding: 0.5rem 1rem; text-align: center; }"
+    },
+    {
+      "name": "Footer",
+      "kind": "custom",
+      "refersTo": "footer",
+      "description": "Ink inversion: marble statement, ash follow line, cinnabar-lift link hover.",
+      "html": "<footer class=\"ds-foot\"><p>Αναλύσεις με πηγή σε κάθε στοιχείο.</p><p class=\"ds-follow\">Ακολούθησε την Opsis <strong>@opsis.gr</strong>: <a href=\"#\">TikTok</a> · <a href=\"#\">Instagram</a></p></footer>",
+      "css": ".ds-foot { background: var(--c-ink, #0F1419); color: var(--c-marble, #E8E6DF); font-family: var(--font-text); font-size: 0.9375rem; padding: 3rem 1rem; display: flex; justify-content: space-between; gap: 2rem; } .ds-foot p { margin: 0; } .ds-follow { color: var(--c-ash, #A5AAB1); } .ds-follow strong { color: var(--c-marble, #E8E6DF); font-weight: 500; } .ds-follow a { color: var(--c-marble, #E8E6DF); text-underline-offset: 0.2em; } .ds-follow a:hover { text-decoration-color: var(--c-cinnabar-lift, #E0553A); } .ds-follow a:focus-visible { outline: 2px solid var(--c-cinnabar, #B5301B); outline-offset: 3px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Ruled Register",
+    "overview": "Opsis reads like a printed weekly issue bound on top of a public ledger. Pentelic marble is the page, ink is the type and the lines, and cinnabar appears only where the reader must look: the one number a piece rests on. Every surface is built from text and 1px hairlines; there are no photographs, cards, shadows or rounded corners on the index pages. The page earns trust by showing its working: every headline carries a mono source line directly beneath it, and the archive is a real table sorted by date with sources aligned right.\n\nDensity is editorial rather than dashboard: a large serif lead opened at display size, a narrow contents column, then a full-width dated register. Hierarchy comes from the serif/sans/mono split and from hairline weight (ink for section breaks, warm grey for rows), not from boxes. The one signature motion is the hairlines drawing left to right once on load, joined by the chart bars growing from their baseline, both switched off under reduced motion.\n\nThe world extends the Marble Edition brand kit (`03_brand_kit/opsis-brand-kit.html`) to the web without changing its palette or faces. Its rejection of the hero-image-plus-card-grid news front page is a confirmed choice, not a phase.",
+    "keyCharacteristics": [
+      "Marble ground, ink type, cinnabar only for the key figure and index marks.",
+      "Three faces with fixed jobs: serif headlines, sans reading text, mono for sources, dates and counts.",
+      "Structure from hairlines only; tonal marble-deep fills for bands and notices.",
+      "Square everything; zero radius, zero elevation.",
+      "One load gesture: lines and bars draw left to right."
+    ],
+    "rules": [
+      {
+        "name": "The One Number Rule",
+        "body": "Cinnabar marks the single figure a piece rests on (its `keyFigure`), set inside the headline by the Headline component, and the matching highlighted bar and value. Never colour body text, labels, or a second number in a piece.",
+        "section": "colors"
+      },
+      {
+        "name": "The Index Mark Rule",
+        "body": "Beyond the key figure, cinnabar is reserved for navigation signals: index numerals, the active nav item, focus and hover underlines. It is a pointer, never decoration or emphasis.",
+        "section": "colors"
+      },
+      {
+        "name": "The Three Jobs Rule",
+        "body": "Serif states the claim, sans explains it, mono proves it. Mono is only for source lines (including their type and date meta), dates, counts, numerals and the tagline. Sentences are never set in mono.",
+        "section": "typography"
+      },
+      {
+        "name": "The Six Hundred Rule",
+        "body": "Every serif headline is weight 600, matching the brand kit. Lighter serif weights are not part of the ramp.",
+        "section": "typography"
+      },
+      {
+        "name": "The Hairline Rule",
+        "body": "Structure comes from 1px rules only. No drop shadows, no glows, no elevation on hover.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do put a mono source line directly under every headline that makes a claim.",
+      "Do set the piece's one key figure in cinnabar through the Headline component, and highlight at most one bar per chart.",
+      "Do build structure with 1px hairlines: ink for section boundaries, Rule grey (#C4C0B5) between rows.",
+      "Do use Marble Deep (#DEDBD2) as the only fill for bands, notices and row hover.",
+      "Do set every serif headline at weight 600.",
+      "Do present data and archives as real tables with captions and row headers.",
+      "Do gate every load animation behind `prefers-reduced-motion: no-preference`."
+    ],
+    "donts": [
+      "Don't use cinnabar for body text, labels, decorative accents, or a second number in the same piece.",
+      "Don't set sentences, headings or deks in JetBrains Mono.",
+      "Don't add cards, enclosing borders, drop shadows or border radius.",
+      "Don't put photographs or hero images on index pages.",
+      "Don't add a kicker or eyebrow label above a headline; type and date belong in the source line below it. (The page-level mono issue bar is not a kicker.)",
+      "Don't use Unicode arrow glyphs in links; use the hairline SVG arrow."
+    ]
+  }
+}

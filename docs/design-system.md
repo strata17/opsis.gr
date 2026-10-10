@@ -12,7 +12,7 @@ This extends the brand kit (`03_brand_kit/opsis-brand-kit.html`, Marble Edition)
 | Type | `--font-display` Noto Serif Display, `--font-text` IBM Plex Sans, `--font-mono` JetBrains Mono | Self-hosted Greek and Latin subsets in `public/fonts` |
 | Scale | `--fs-display` 40–68px, `--fs-title` 34–56, `--fs-h2` 24–32, `--fs-h3` 19–24, `--fs-dek` 17–20, `--fs-body` 17, `--fs-small` 15, `--fs-label` 12 | Fluid between 390 and 1440px |
 | Space | `--s-1` … `--s-9` (4 to 96px), `--gutter` 16–56px, `--measure` 68ch | More space above a heading than below |
-| Motion | `--ease-out`, `--dur-draw` 900ms, `--dur-quick` 160ms | One motion: rules draw left to right on load |
+| Motion | `--ease-out`, `--dur-draw` 900ms, `--dur-quick` 160ms | On load, rules draw and chart bars grow left to right; all gated by reduced motion |
 
 ### Colour rules
 - Cinnabar marks **one number per piece** (`keyFigure`), the highlighted bar, contents numerals and the active nav item. Never body text or labels.
