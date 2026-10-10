@@ -267,7 +267,7 @@ Ink ground (Ink Raised in dark, with a top hairline), marble text, wordmark in m
 ### Motion
 All motion is gated: an inline head script adds `html.motion` only when reduced motion is off, and `src/lib/motion.ts` never runs otherwise. Content is fully visible without JavaScript. Easing is `cubic-bezier(0.16, 1, 0.3, 1)` (expo out).
 - **Rules draw**: hairline rules draw from 0 to 100% width on load (900ms, 45ms stagger).
-- **The eye opens**: once per browser session, the masthead O mark opens from a slit (700ms) and the pupil settles with a slight overshoot.
+- **The eye opens**: on each homepage visit, the masthead O mark opens from a slit (1000ms) and the pupil settles with a slight overshoot.
 - **Bars and figures on reveal**: charts grow their bars when scrolled into view (1100ms, staggered). Key figures in headlines and highlighted chart values count up from zero in Greek number format, and screen readers get the final value.
 - **The claim is struck through**: in the claim ledger, a 1.5px accent rule draws through each claim (900ms) as its fact comes up from 35% opacity.
 - **Source link**: hovering or focusing a sidenote number fills it with the accent and lights its note on the surface fill, and the note lights the number back.

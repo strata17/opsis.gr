@@ -20,7 +20,7 @@ const fullTitle = title ? `${title} · Opsis` : 'Opsis · Καθαρή ματι�
     <script is:inline>
       if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
         document.documentElement.classList.add('motion');
-        try { if (!sessionStorage.getItem('opsis-eye')) { document.documentElement.classList.add('eye-open'); sessionStorage.setItem('opsis-eye', '1'); } } catch {}
+        if (location.pathname === '/') document.documentElement.classList.add('eye-open');
       }
       try { const t = localStorage.getItem('opsis-theme'); if (t === 'dark' || t === 'light') document.documentElement.dataset.theme = t; } catch {}
       if ((document.documentElement.dataset.theme ?? (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')) === 'dark')
