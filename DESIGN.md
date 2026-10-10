@@ -261,6 +261,9 @@ In the masthead nav after the links: an authored half-filled circle icon and the
 ### Footer
 Ink ground (Ink Raised in dark, with a top hairline), marble text, wordmark in marble tone with cinnabar-lift pupil, Ash secondary text.
 
+### Share Images
+1200×630 PNGs generated at build time for every piece and the homepage (`/og/<slug>.png`, `src/og/render.ts`, satori + resvg). Always the light Marble edition, so a shared link looks the same everywhere. Layout: the wordmark top left and the mono tagline top right; the headline in Noto Serif Display 600 (88, 72 or 60px by length) with the key figure in cinnabar; a 2px ink rule; mono type · date on the left and the source on the right. Greek capitals drop their accents. Fonts are TTF copies of the self-hosted brand faces, with the Greek and Latin subsets merged.
+
 ### Motion
 On load, hairline rules draw from 0 to 100% width over 900ms (`cubic-bezier(0.16, 1, 0.3, 1)`), staggered 45ms per row after a 120ms start; chart bars grow from the left on the same curve. Both run once and only under `prefers-reduced-motion: no-preference`. Hover transitions are 160ms ease-out.
 

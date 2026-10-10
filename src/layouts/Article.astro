@@ -13,7 +13,7 @@ interface Props { thema: Thema }
 const { thema } = Astro.props;
 const d = thema.data;
 ---
-<Base title={d.title} description={d.dek} current="" sample={d.sample}>
+<Base title={d.title} description={d.dek} current="" sample={d.sample} image={`/og/${thema.id}.png`}>
   <article class="wrap article">
     <a class="back" href="/#arxeio"><Arrow dir="left" />{copy.article.back}</a>
     <header class="head">
