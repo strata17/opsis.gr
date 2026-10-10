@@ -60,6 +60,7 @@ export const copy = {
     links: [
       { label: 'TikTok', href: 'https://www.tiktok.com/@opsis.gr' },
       { label: 'Instagram', href: 'https://www.instagram.com/opsis.gr/' },
+      { label: 'YouTube @opsismedia', href: 'https://www.youtube.com/@opsismedia' },
     ],
     handle: '@opsis.gr',
   },

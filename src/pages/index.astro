@@ -5,6 +5,7 @@ import BarFigure from '../components/BarFigure.astro';
 import Arrow from '../components/Arrow.astro';
 import Headline from '../components/Headline.astro';
 import ClaimLedger from '../components/ClaimLedger.astro';
+import LeadPhoto from '../components/LeadPhoto.astro';
 import { copy } from '../lib/copy';
 import { currentIssue, href } from '../lib/themata';
 import { shortDate, weekRange } from '../lib/format';
@@ -35,6 +36,7 @@ const claimPiece = items.find((t) => t.data.type === 'elegxos' && t.data.claims?
           <h1 id="lead-title"><a href={href(lead)}><Headline title={lead.data.title} figure={lead.data.keyFigure} /></a></h1>
           <p class="dek">{lead.data.dek}</p>
           <SourceLine meta={`${copy.types[lead.data.type]} · ${shortDate(lead.data.date)}`} text={lead.data.sourceLine} label={lead.data.sources.length > 1 ? copy.sources : copy.source} />
+          {lead.data.photo && <div class="lead-photo"><LeadPhoto {...lead.data.photo} eager /></div>}
           {lead.data.facts && (
             <table class="facts">
               <tbody>
@@ -147,6 +149,7 @@ const claimPiece = items.find((t) => t.data.type === 'elegxos' && t.data.claims?
   h1 a:hover, h2 a:hover, .title a:hover { text-decoration: underline; text-decoration-thickness: 2px; text-decoration-color: var(--accent); }
   .dek { margin-top: var(--s-5); margin-bottom: var(--s-4); font-size: var(--fs-dek); line-height: 1.55; color: var(--fg-soft); max-width: 38em; }
 
+  .lead-photo { margin-top: var(--s-6); }
   .facts { width: 100%; margin-top: var(--s-6); border-collapse: collapse; }
   .facts tr:last-child { box-shadow: inset 0 calc(-1 * var(--hair)) 0 var(--rule); }
   .facts th, .facts td { padding: var(--s-3) var(--s-4) var(--s-3) 0; text-align: left; vertical-align: baseline; }

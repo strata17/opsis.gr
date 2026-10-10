@@ -249,6 +249,9 @@ The brand's claim-versus-facts move, from the carousels. Two columns under an in
 - **Pull Quote**: serif 600 at h2 size between two strong hairlines, with a mono credit beneath. Used only for Opsis's own commentary lines.
 - **Video Slot**: a 9:16 ink frame with the marble wordmark and a hairline play icon, beside «Δες το σε βίντεο» and a mono platform and duration line. It links out to the platform; no third-party embed scripts.
 
+### Lead Photo
+One graded black-and-white photograph per lead story, the same treatment as the videos (`06_video_toolkit/grade.py`). It is cropped 16:9 with an adjustable focal point, shown under the source line on the homepage lead and on the article, and followed by a mono credit line. It is optional, and a piece reads complete without it.
+
 ### Bar Figure
 Charts are accessible tables with a caption. Bars are 14px solid rectangles: ink by default, Ash for reference rows, cinnabar for the one highlighted row, whose label and value also go to 600 and cinnabar. Values are mono tabular, right-aligned. Source in a mono figcaption.
 
@@ -289,6 +292,6 @@ All motion is gated: an inline head script adds `html.motion` only when reduced 
 - **Don't** use cinnabar for body text, labels, decorative accents, or a second number in the same piece.
 - **Don't** set sentences, headings or deks in JetBrains Mono.
 - **Don't** add cards, enclosing borders, drop shadows or border radius.
-- **Don't** put photographs or hero images on index pages.
+- **Don't** use more than one photograph per lead story, colour photography, or untreated stock. Photos are graded black and white, as in the videos, always credited, and from Wikimedia Commons or Opsis's own material.
 - **Don't** add a kicker or eyebrow label above a headline; type and date belong in the source line below it. (The page-level mono issue bar is not a kicker.)
 - **Don't** use Unicode arrow glyphs in links; use the hairline SVG arrow.
