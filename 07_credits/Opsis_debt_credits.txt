@@ -1,0 +1,14 @@
+Opsis: Public debt video, credits (all photos from Wikimedia Commons)
+
+Credits comment (paste as first comment):
+Φωτογραφίες: Wikimedia Commons: George E. Koronaios (CC BY-SA 4.0), The Metropolitan Museum of Art (CC0), trestletech (CC0), Jebulon (CC0). Επεξεργασία: Opsis.
+Πηγές: ΕΛΣΤΑΤ, δημόσιο χρέος τέλος α΄ τριμήνου 2026: 360,1 δισ. ευρώ (143,5% του ΑΕΠ) · Eurostat, 21/7/2026: χρέος/ΑΕΠ α΄ τριμήνου 2026 (Ελλάδα 143,5 · Ιταλία 138,9 · Γαλλία 117,6 · Βέλγιο 109,1 · ΕΕ 82,9). Το μερίδιο ανά κάτοικο (≈34.600 €) είναι υπολογισμός της Opsis: 360,1 δισ. ÷ περίπου 10,4 εκατ. κατοίκους.
+
+Photos:
+- "Ermou Street on December 17, 2020.jpg", George E. Koronaios, CC BY-SA 4.0
+- "Statue of a young man at the Numismatic Museum (Athens) on May 3, 2022.jpg", George E. Koronaios, CC BY-SA 4.0
+- "Marble head of an elderly woman MET DP331272.jpg", The Metropolitan Museum of Art, CC0
+- "Baby-Parenthood-Finger-Father-Hand-Love-Mother-1271742.jpg", trestletech (Pixabay), CC0
+- "Vouli, inside hellenic Parliament, Athens, Greece.jpg", Jebulon, CC0
+Changes: black and white, graded, cropped, halftone, painted overlays.
+The bill ("ΛΟΓΑΡΙΑΣΜΟΣ") in the video is an Opsis graphic, not a real document.

@@ -1,0 +1,9 @@
+Opsis: Kasidiaris video, credits (all photos from Wikimedia Commons)
+Caption credit: Φωτογραφίες: Wikimedia Commons: DTRocks (CC BY-SA 4.0), Robin Rönnlund (CC BY-SA 4.0), NikosLikomitros (CC0), Jebulon (CC0), Berthold Werner (CC BY-SA 3.0). Επεξεργασία: Opsis.
+- Ilias Kasidiaris, March 2016 (two photos): "Ilias Kasidiaris a Mar 21016.jpg" and "Ilias Kasidiaris b Mar 2016.jpg", DTRocks, CC BY-SA 4.0
+- Domokos: "Domokos from akropolis.jpg", Robin Rönnlund, CC BY-SA 4.0
+- Ballots, June 2023 election: "June 2023 Greek election - ballots.jpg", NikosLikomitros, CC0
+- Hellenic Parliament plenary hall: "Vouli, inside hellenic Parliament, Athens, Greece.jpg", Jebulon, CC0
+- Areopagus hill, Athens: "Athen BW 2017-10-09 12-59-57.jpg", Berthold Werner, CC BY-SA 3.0
+Changes: black and white, graded, cropped, painted overlays.
+Data sources: Palmos Analysis poll for TheOpinion, 14-18/9/2026, n=1,021, ±3.1% (naftemporiki.gr); June 2023 election result (Ministry of Interior); topontiki.gr on Συμμαχία Ελλήνων (21/9/2026); in.gr on the 15/9/2026 release.

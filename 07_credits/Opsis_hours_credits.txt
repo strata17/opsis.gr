@@ -1,0 +1,9 @@
+Opsis: Hours vs income video, credits (all photos from Wikimedia Commons)
+Caption credit: Φωτογραφίες: Wikimedia Commons: athenswalk (CC0), Klearchos Kapoutsis (CC BY 2.0), Raphael Schön (CC BY 2.0), dronepicr (CC BY 2.0), Rc1959 (CC BY-SA 4.0). Επεξεργασία: Opsis.
+- "Central Market of Athens.jpg", athenswalk, CC0
+- "Worker of the stones... (5580186619).jpg", Klearchos Kapoutsis, CC BY 2.0
+- "Greek Fisherman (1373525244).jpg", Raphael Schön, CC BY 2.0
+- "Olive harvest in Greece, Zakynthos island (46469380281).jpg", dronepicr, CC BY 2.0
+- "Athènes.Marché Varvakios.20230403 171220.jpg", Rc1959, CC BY-SA 4.0
+Changes: black and white, graded, cropped, painted overlays.
+Data: Eurostat news 27/5/2026 "Average work week nearly 36 hours in the EU in 2025" (Greece 39.6h, EU 35.9h, Netherlands 31.9h; actual hours, ages 20-64, main job); Eurostat news 25/3/2026 & 17/6/2026, GDP per capita in PPS 2025 preliminary (Greece and Bulgaria 68, Latvia ~71, EU=100).

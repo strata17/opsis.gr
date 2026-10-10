@@ -1,0 +1,8 @@
+Opsis: Samaras vs Kasidiaris video, credits (all photos from Wikimedia Commons)
+Caption credit: Φωτογραφίες: Wikimedia Commons: European People's Party (CC BY 2.0), DTRocks (CC BY-SA 4.0), NikosLikomitros (CC0), Jebulon (CC0). Επεξεργασία: Opsis.
+- Antonis Samaras: "Antonis Samaras October 2014.jpg", "Antonis Samaras (13581539954).jpg", "Antonis Samaras (9301261870).jpg", European People's Party, CC BY 2.0
+- Ilias Kasidiaris, March 2016: "Ilias Kasidiaris a Mar 21016.jpg", "Ilias Kasidiaris b Mar 2016.jpg", DTRocks, CC BY-SA 4.0
+- Ballots, June 2023 election: "June 2023 Greek election - ballots.jpg", NikosLikomitros, CC0
+- Hellenic Parliament plenary hall: "Vouli, inside hellenic Parliament, Athens, Greece.jpg", Jebulon, CC0
+Changes: black and white, graded, cropped, painted overlays.
+Data: Palmos Analysis poll for TheOpinion, 14-18/9/2026, n=1,021, ±3.1%. Samaras: 4% certainly, 14% maybe, 80% no way. Kasidiaris: 8% certainly, 9% maybe, 81% no way (thetoc.gr).

@@ -1,0 +1,25 @@
+Opsis — 10s motion piece: photo credits (all from Wikimedia Commons)
+
+The CC BY and CC BY-SA photos need credit. Paste the "Caption credit" block into the post caption or a comment.
+
+Caption credit (short form):
+Φωτογραφίες: Wikimedia Commons — fdecomite (CC BY 2.0), LBM1948 (CC BY-SA 4.0), George E. Koronaios (CC BY-SA 4.0), FocalPoint (CC BY-SA 4.0), MatthewJBarker (CC BY-SA 4.0), Jean-Louis Debaize / European Communities 1979 (CC BY 4.0). Επεξεργασία: Opsis.
+
+Full list:
+- Charioteer of Delphi, face: "Wagenlenker von Delphi Gesicht.jpg", Xocolatl, Public domain. https://commons.wikimedia.org/wiki/File:Wagenlenker_von_Delphi_Gesicht.jpg
+- Charioteer of Delphi, profile: "Delphi Charioteer 17.JPG", Karmakolle, CC0. https://commons.wikimedia.org/wiki/File:Delphi_Charioteer_17.JPG
+- Artemision Bronze, head: "Artemisionbronze-Head.jpg", Marisauna, CC0. https://commons.wikimedia.org/wiki/File:Artemisionbronze-Head.jpg
+- Head of Zeus, National Archaeological Museum: "Head Zeus NAMA3377.jpg", Jebulon, CC0. https://commons.wikimedia.org/wiki/File:Head_Zeus_NAMA3377.jpg
+- Hellenic Parliament at night: "Atenas, Parlamento.jpg", LBM1948, CC BY-SA 4.0. https://commons.wikimedia.org/wiki/File:Atenas,_Parlamento.jpg
+- Two Evzones: "Two Evzones Tomb Unknown Soldier Athens Greece.jpg", Jebulon, CC0. https://commons.wikimedia.org/wiki/File:Two_Evzones_Tomb_Unknown_Soldier_Athens_Greece.jpg
+- Evzones, ceremonial step: "Foot foot Evzones Athens.jpg", Jebulon, CC0. https://commons.wikimedia.org/wiki/File:Foot_foot_Evzones_Athens.jpg
+- Evzone on guard: "Evzone at guard unknown soldier tomb Athens Greece.jpg", Jebulon, CC0. https://commons.wikimedia.org/wiki/File:Evzone_at_guard_unknown_soldier_tomb_Athens_Greece.jpg
+- Greek flag: "Greek flag waving.png", fdecomite, CC BY 2.0. https://commons.wikimedia.org/wiki/File:Greek_flag_waving.png
+- Ballot box: "Greek elections 21 May 2023 ballot box c.jpg", FocalPoint, CC BY-SA 4.0. https://commons.wikimedia.org/wiki/File:Greek_elections_21_May_2023_ballot_box_c.jpg
+- Greek 2-euro coin: "Greek 2Euro Coin 2002.jpg", MatthewJBarker, CC BY-SA 4.0. https://commons.wikimedia.org/wiki/File:Greek_2Euro_Coin_2002.jpg
+- Newspaper reader, Athens 1979: "Man reading a newspaper at a café terrace in Athens, Greece - 1979.jpg", Jean-Louis Debaize / European Communities, 1979 / EC Audiovisual Service, CC BY 4.0. https://commons.wikimedia.org/wiki/File:Man_reading_a_newspaper_at_a_caf%C3%A9_terrace_in_Athens,_Greece_-_1979.jpg
+- Acropolis: "Acropolis Parthenon Athens Greece.jpg", Jebulon, CC0. https://commons.wikimedia.org/wiki/File:Acropolis_Parthenon_Athens_Greece.jpg
+- Athens street at night: "Street in Athens at night - 001.jpg", Nicolas Vigier, CC0. https://commons.wikimedia.org/wiki/File:Street_in_Athens_at_night_-_001.jpg
+- Syntagma Square: "The Hellenic Parliament and Syntagma Square on May 24, 2019.jpg", George E. Koronaios, CC BY-SA 4.0. https://commons.wikimedia.org/wiki/File:The_Hellenic_Parliament_and_Syntagma_Square_on_May_24,_2019.jpg
+
+Changes made to all photos: converted to black and white, contrast graded, cropped, with painted overlays added.
