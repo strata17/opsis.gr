@@ -1,0 +1,23 @@
+---
+// ΟΨΙΣ wordmark: the O is the brand mark (eye with cinnabar pupil), per the brand kit.
+interface Props { size?: string; tone?: 'ink' | 'marble' }
+const { size = '1.875rem', tone = 'ink' } = Astro.props;
+---
+<span class:list={['wm', tone]} style={`--wm-size:${size}`} role="img" aria-label="ΟΨΙΣ">
+  <svg viewBox="0 0 100 100" aria-hidden="true">
+    <path fill-rule="evenodd" d="M0 50 A50 50 0 1 0 100 50 A50 50 0 1 0 0 50 Z M24 50 A26 38 0 1 1 76 50 A26 38 0 1 1 24 50 Z" />
+    <circle cx="50" cy="50" r="11" />
+  </svg><span aria-hidden="true">ΨΙΣ</span>
+</span>
+<style>
+  .wm {
+    display: inline-flex; align-items: baseline;
+    font-family: var(--font-display); font-weight: 600; font-size: var(--wm-size);
+    line-height: 1; letter-spacing: 0.05em; color: var(--c-ink);
+  }
+  .wm svg { width: 0.74em; height: 0.74em; margin-right: 0.05em; margin-bottom: -0.012em; flex: none; }
+  .wm path { fill: currentColor; }
+  .wm circle { fill: var(--c-cinnabar); }
+  .wm.marble { color: var(--c-marble); }
+  .wm.marble circle { fill: var(--c-cinnabar-lift); }
+</style>

@@ -1,0 +1,41 @@
+import { defineCollection, z } from 'astro:content';
+import { glob } from 'astro/loaders';
+
+const source = z.object({
+  name: z.string(),          // ΕΛΣΤΑΤ, Eurostat, ΤΑ ΝΕΑ ...
+  detail: z.string().optional(), // what exactly, and when
+  url: z.string().url().optional(),
+});
+
+const figure = z.object({
+  title: z.string(),
+  unit: z.string().optional(),
+  rows: z.array(z.object({
+    label: z.string(),
+    value: z.number(),
+    highlight: z.boolean().default(false),
+    reference: z.boolean().default(false), // averages such as ΕΕ
+  })),
+  source: z.string(),
+});
+
+const themata = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/themata' }),
+  schema: z.object({
+    title: z.string(),
+    keyFigure: z.string().optional(), // the one number, set in cinnabar in the headline
+    dek: z.string(),
+    type: z.enum(['analysi', 'dedomena', 'sxolio']),
+    date: z.coerce.date(),
+    sourceLine: z.string(),   // short form for lists: "Eurostat, 2025"
+    sources: z.array(source).min(1),
+    figure: figure.optional(),
+    facts: z.array(z.object({ label: z.string(), value: z.string(), when: z.string().optional() })).optional(),
+    method: z.string().optional(),
+    corrections: z.array(z.object({ date: z.coerce.date(), text: z.string() })).default([]),
+    lead: z.boolean().default(false),
+    sample: z.boolean().default(false),
+  }),
+});
+
+export const collections = { themata };

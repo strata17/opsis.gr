@@ -1,0 +1,9 @@
+---
+import { copy } from '../lib/copy';
+interface Props { text: string; label?: string; processed?: boolean; meta?: string }
+const { text, label = copy.source, processed = true, meta } = Astro.props;
+---
+<p class="mono source">
+  {meta && <span class="meta">{meta} · </span>}{label}: <strong>{text}</strong>{processed && <span> · {copy.processing}</span>}
+</p>
+<style>.meta { color: var(--fg); }</style>

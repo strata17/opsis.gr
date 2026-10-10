@@ -1,0 +1,26 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base title="Μέθοδος" current="/methodos/">
+  <article class="wrap m">
+    <h1>Πώς δουλεύουμε</h1>
+    <p class="dek">Τι δείχνουν πραγματικά οι αριθμοί. Κάθε θέμα της Opsis ακολουθεί τους ίδιους κανόνες.</p>
+    <ol>
+      <li class="rule-top"><h2>Κάθε στοιχείο με την πηγή του</h2><p>Κάθε αριθμός συνοδεύεται από τον φορέα και την ημερομηνία που τον δημοσίευσε. Όταν ένας αριθμός είναι δικός μας υπολογισμός, το γράφουμε και δείχνουμε πώς βγήκε.</p></li>
+      <li class="rule-top"><h2>Δεδομένα και γνώμη χωριστά</h2><p>Τα θέματα χωρίζονται σε Ανάλυση, Δεδομένα και Σχόλιο. Το Σχόλιο είναι θέση της Opsis και σημειώνεται πάντα ως τέτοιο.</p></li>
+      <li class="rule-top"><h2>Τι δείχνει και τι δεν δείχνει</h2><p>Γράφουμε τι μετρήθηκε, τι δείχνει, και πού σταματά αυτό που μπορούμε να συμπεράνουμε.</p></li>
+      <li class="rule-top"><h2>Διορθώσεις στο φως</h2><p>Αν βρεθεί λάθος, το διορθώνουμε και το σημειώνουμε στο τέλος του θέματος με ημερομηνία.</p></li>
+      <li class="rule-top"><h2>Εικόνες με άδεια</h2><p>Οι φωτογραφίες προέρχονται από το Wikimedia Commons, με τον δημιουργό και την άδεια κάθε φωτογραφίας.</p></li>
+    </ol>
+  </article>
+</Base>
+<style>
+  .m { max-width: calc(46rem + 2 * var(--gutter)); padding-top: var(--s-7); }
+  h1 { font-size: var(--fs-title); }
+  .dek { margin: var(--s-4) 0 var(--s-7); font-size: var(--fs-dek); color: var(--fg-soft); }
+  ol { list-style: none; counter-reset: rule; }
+  li { counter-increment: rule; display: grid; grid-template-columns: 2.5rem 1fr; padding: var(--s-5) 0; }
+  li::before { content: counter(rule, decimal-leading-zero); grid-row: span 2; font-family: var(--font-mono); font-size: var(--fs-num); color: var(--accent); padding-top: 0.4em; }
+  h2 { font-size: var(--fs-h3); }
+  p { margin-top: var(--s-2); max-width: var(--measure); }
+</style>

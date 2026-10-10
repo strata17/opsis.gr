@@ -1,0 +1,61 @@
+/* Opsis design tokens. Source of truth: 03_brand_kit/opsis-brand-kit.html (Marble Edition). */
+:root {
+  /* Colour: brand */
+  --c-marble: #E8E6DF;      /* ground, light */
+  --c-ink: #0F1419;         /* text, rules, ground dark */
+  --c-cinnabar: #B5301B;    /* accent on marble, 4.9:1 */
+  --c-cinnabar-lift: #E0553A; /* accent on ink */
+  --c-slate: #5A6068;       /* secondary text on marble, 5.1:1 */
+  --c-ash: #A5AAB1;         /* secondary on ink, comparison bars */
+
+  /* Colour: derived from the brand */
+  --c-marble-deep: #DEDBD2; /* quiet fills: notices, hover rows */
+  --c-ink-soft: #2B3038;    /* dek and long text, from kit labels */
+  --c-rule: #C4C0B5;        /* hairlines between rows */
+
+  /* Roles */
+  --bg: var(--c-marble);
+  --fg: var(--c-ink);
+  --fg-soft: var(--c-ink-soft);
+  --fg-muted: var(--c-slate);
+  --accent: var(--c-cinnabar);
+  --rule-strong: var(--c-ink);
+  --rule: var(--c-rule);
+
+  /* Type families */
+  --font-display: 'Noto Serif Display', 'Times New Roman', serif;
+  --font-text: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Type scale (fluid, 390px to 1440px) */
+  --fs-display: clamp(2.5rem, 1.75rem + 3.1vw, 4.25rem);
+  --fs-title: clamp(2.125rem, 1.6rem + 2.2vw, 3.5rem);
+  --fs-h2: clamp(1.5rem, 1.3rem + 0.8vw, 2rem);
+  --fs-h3: clamp(1.1875rem, 1.08rem + 0.45vw, 1.5rem);
+  --fs-dek: clamp(1.0625rem, 1rem + 0.3vw, 1.25rem);
+  --fs-body: 1.0625rem;
+  --fs-small: 0.9375rem;
+  --fs-label: 0.75rem;
+  --fs-num: 0.8125rem;
+
+  --lh-display: 1.04;
+  --lh-head: 1.2;
+  --lh-body: 1.6;
+
+  --track-display: -0.015em;
+  --track-label: 0.12em;
+  --track-tag: 0.32em;
+
+  /* Space */
+  --s-1: 0.25rem; --s-2: 0.5rem; --s-3: 0.75rem; --s-4: 1rem; --s-5: 1.5rem;
+  --s-6: 2rem; --s-7: 3rem; --s-8: 4rem; --s-9: 6rem;
+  --gutter: clamp(1rem, 4vw, 3.5rem);
+  --measure: 68ch;
+  --page-max: 90rem;
+
+  /* Lines and motion */
+  --hair: 1px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-draw: 900ms;
+  --dur-quick: 160ms;
+}

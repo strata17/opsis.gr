@@ -1,0 +1,14 @@
+---
+// Authored hairline arrow; replaces Unicode arrow glyphs in links.
+interface Props { dir?: 'right' | 'left' }
+const { dir = 'right' } = Astro.props;
+---
+<svg class:list={['arrow', dir]} viewBox="0 0 16 10" width="16" height="10" aria-hidden="true" focusable="false">
+  <path d="M0.5 5 H14.5 M10.5 1 L14.5 5 L10.5 9" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="square" />
+</svg>
+<style>
+  .arrow { display: inline-block; vertical-align: 0.05em; margin-inline: 0.15em; transition: transform var(--dur-quick) ease-out; }
+  .arrow.left { transform: scaleX(-1); }
+  :global(a:hover) > .arrow.right { transform: translateX(3px); }
+  :global(a:hover) > .arrow.left { transform: scaleX(-1) translateX(3px); }
+</style>

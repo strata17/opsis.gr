@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/*.html"
+        ],
+        "createdAt": "2026-10-10T09:45:04.199Z",
+        "reason": "brand-pinned: Pentelic Marble #E8E6DF ground from 03_brand_kit/opsis-brand-kit.html (Marble Edition)"
+      }
+    ]
+  }
+}

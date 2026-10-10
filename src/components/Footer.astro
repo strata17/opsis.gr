@@ -1,0 +1,26 @@
+---
+import Wordmark from './Wordmark.astro';
+import { copy } from '../lib/copy';
+---
+<footer class="foot">
+  <div class="wrap inner">
+    <Wordmark tone="marble" size="1.5rem" />
+    <p class="statement">{copy.footer.statement}</p>
+    <p class="follow">
+      {copy.footer.follow} <strong>{copy.footer.handle}</strong>:
+      {copy.footer.links.map((l, i) => (<>{i > 0 && ' · '}<a href={l.href} rel="me noopener">{l.label}</a></>))}
+    </p>
+  </div>
+</footer>
+<style>
+  .foot { background: var(--c-ink); color: var(--c-marble); margin-top: var(--s-9); }
+  .inner { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: var(--s-6); padding-block: var(--s-7); }
+  .statement, .follow { font-size: var(--fs-small); }
+  .statement { max-width: 46ch; }
+  .follow { color: var(--c-ash); }
+  .follow strong { color: var(--c-marble); font-weight: 500; }
+  .follow a { color: var(--c-marble); display: inline-block; padding-block: var(--s-2); }
+  .follow a:hover { text-decoration-color: var(--c-cinnabar-lift); }
+  .foot :global(::selection) { background: var(--c-marble); color: var(--c-ink); }
+  @media (max-width: 760px) { .inner { grid-template-columns: 1fr; gap: var(--s-4); } }
+</style>

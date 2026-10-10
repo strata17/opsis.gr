@@ -1,0 +1,33 @@
+---
+import '../styles/global.css';
+import Masthead from '../components/Masthead.astro';
+import Footer from '../components/Footer.astro';
+import SampleNotice from '../components/SampleNotice.astro';
+import { copy } from '../lib/copy';
+interface Props { title?: string; description?: string; current?: string; sample?: boolean }
+const { title, description = copy.footer.statement, current = '/', sample = true } = Astro.props;
+const fullTitle = title ? `${title} · Opsis` : 'Opsis · Καθαρή ματιά';
+---
+<!doctype html>
+<html lang="el">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#E8E6DF" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href="/fonts/noto-serif-display-greek-600-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/ibm-plex-sans-greek-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:locale" content="el_GR" />
+  </head>
+  <body>
+    <a class="skip" href="#main">{copy.skip}</a>
+    {sample && <SampleNotice />}
+    <Masthead current={current} />
+    <main id="main"><slot /></main>
+    <Footer />
+  </body>
+</html>

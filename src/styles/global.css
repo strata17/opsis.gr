@@ -1,0 +1,91 @@
+@import './fonts.css';
+@import './tokens.css';
+
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; padding: 0; }
+
+html {
+  background: var(--bg);
+  color: var(--fg);
+  -webkit-text-size-adjust: 100%;
+  scrollbar-color: var(--c-slate) var(--c-marble-deep);
+}
+body {
+  font-family: var(--font-text);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  font-kerning: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+main { flex: 1; }
+img, svg { display: block; max-width: 100%; }
+
+::selection { background: var(--c-ink); color: var(--c-marble); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+input, textarea { caret-color: var(--accent); }
+
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: var(--lh-head);
+  text-wrap: balance;
+}
+
+.wrap {
+  width: 100%;
+  max-width: var(--page-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* Mono line used for sources, dates and counts (brand kit "SOURCE LINE"). */
+.mono {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 400;
+  letter-spacing: var(--track-label);
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  font-variant-numeric: tabular-nums;
+}
+.mono strong { font-weight: 500; color: var(--fg); }
+@media (max-width: 640px) { .mono { letter-spacing: 0.07em; } }
+
+.visually-hidden {
+  position: absolute !important; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
+}
+
+.skip {
+  position: absolute; left: var(--gutter); top: -100px; z-index: 10;
+  background: var(--c-ink); color: var(--c-marble); padding: var(--s-2) var(--s-4);
+  font-weight: 500; text-decoration: none;
+}
+.skip:focus { top: var(--s-3); }
+
+/* Signature motion: hairline rules draw left to right once on load.
+   Rules are background images so content never waits on the animation. */
+.rule-top, .rule-top-strong {
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-size: 100% var(--hair);
+}
+.rule-top { background-image: linear-gradient(var(--rule), var(--rule)); }
+.rule-top-strong { background-image: linear-gradient(var(--rule-strong), var(--rule-strong)); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .rule-top, .rule-top-strong {
+    animation: rule-draw var(--dur-draw) var(--ease-out) both;
+    animation-delay: calc(var(--i, 0) * 45ms + 120ms);
+  }
+}
+@keyframes rule-draw {
+  from { background-size: 0% var(--hair); }
+  to { background-size: 100% var(--hair); }
+}

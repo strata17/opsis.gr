@@ -1,0 +1,188 @@
+---
+import Base from '../layouts/Base.astro';
+import SourceLine from '../components/SourceLine.astro';
+import BarFigure from '../components/BarFigure.astro';
+import Arrow from '../components/Arrow.astro';
+import Headline from '../components/Headline.astro';
+import { copy } from '../lib/copy';
+import { currentIssue, href } from '../lib/themata';
+import { shortDate, weekRange } from '../lib/format';
+
+const { lead, pieces, week, items } = await currentIssue();
+const rest = pieces.slice(1);
+const dataPiece = items.find((t) => t.data.type === 'dedomena' && t.data.figure && t !== lead);
+const readLabel = { analysi: copy.issue.readLead, dedomena: copy.issue.readData, sxolio: copy.issue.readComment };
+---
+<Base current="/">
+  {lead && week ? (
+    <>
+      <div class="issuebar">
+        <div class="wrap mono row">
+          <span><strong>{copy.issue.week(week.week)}</strong> · {weekRange(week.monday, week.sunday)}</span>
+          <span>{copy.issue.count(pieces.length)}</span>
+        </div>
+      </div>
+
+      <section class="wrap spread" aria-labelledby="lead-title">
+        <article class="lead">
+          <h1 id="lead-title"><a href={href(lead)}><Headline title={lead.data.title} figure={lead.data.keyFigure} /></a></h1>
+          <p class="dek">{lead.data.dek}</p>
+          <SourceLine meta={`${copy.types[lead.data.type]} · ${shortDate(lead.data.date)}`} text={lead.data.sourceLine} label={lead.data.sources.length > 1 ? copy.sources : copy.source} />
+          {lead.data.facts && (
+            <table class="facts">
+              <tbody>
+                {lead.data.facts.map((f, i) => (
+                  <tr class="rule-top" style={`--i:${i + 2}`}>
+                    <th scope="row">{f.label}</th>
+                    <td>{f.value}</td>
+                    <td class="mono when">{f.when}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
+          <a class="read" href={href(lead)}>{readLabel[lead.data.type]}<Arrow /></a>
+        </article>
+
+        {rest.length > 0 && (
+          <nav class="contents" aria-labelledby="contents-title">
+            <h2 id="contents-title">{copy.issue.contents}</h2>
+            <ol>
+              {pieces.map((t, i) => (
+                <li class:list={['rule-top', { current: t === lead }]} style={`--i:${i}`}>
+                  <a href={href(t)} aria-current={t === lead ? 'true' : undefined}>
+                    <span class="n">{String(i + 1).padStart(2, '0')}</span>
+                    <span class="body">
+                      <span class="t">{t.data.title}</span>
+                      <span class="mono">{copy.types[t.data.type]} · {t.data.sourceLine}</span>
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </nav>
+        )}
+      </section>
+    </>
+  ) : null}
+
+  {dataPiece?.data.figure && (
+    <section class="data rule-top-strong" aria-labelledby="data-title">
+      <div class="wrap grid">
+        <div>
+          <h2 id="data-title"><a href={href(dataPiece)}><Headline title={dataPiece.data.title} figure={dataPiece.data.keyFigure} /></a></h2>
+          <p class="dek">{dataPiece.data.dek}</p>
+          <SourceLine meta={`${copy.types.dedomena} · ${shortDate(dataPiece.data.date)}`} text={dataPiece.data.sourceLine} />
+          <a class="read" href={href(dataPiece)}>{copy.issue.readData}<Arrow /></a>
+        </div>
+        <BarFigure {...dataPiece.data.figure} />
+      </div>
+    </section>
+  )}
+
+  <section id="arxeio" class="wrap register" aria-labelledby="register-title">
+    <h2 id="register-title">{copy.register.heading}</h2>
+    {items.length === 0 ? (
+      <p class="empty">{copy.register.empty}</p>
+    ) : (
+      <table>
+        <thead>
+          <tr class="mono">
+            <th scope="col">{copy.register.columns.date}</th>
+            <th scope="col">{copy.register.columns.type}</th>
+            <th scope="col">{copy.register.columns.title}</th>
+            <th scope="col" class="src">{copy.register.columns.source}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {items.map((t, i) => (
+            <tr class="rule-top" style={`--i:${i}`}>
+              <td class="mono date"><time datetime={t.data.date.toISOString().slice(0, 10)}>{shortDate(t.data.date)}</time></td>
+              <td class="mono kind">{copy.types[t.data.type]}</td>
+              <th scope="row" class="title"><a href={href(t)}>{t.data.title}</a></th>
+              <td class="mono src">{t.data.sourceLine}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    )}
+  </section>
+</Base>
+
+<style>
+  .issuebar { border-bottom: var(--hair) solid var(--rule); }
+  .issuebar .row { display: flex; justify-content: space-between; gap: var(--s-4); padding-block: var(--s-3); }
+
+  .spread {
+    display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    column-gap: var(--s-8); padding-block: var(--s-7) var(--s-8);
+  }
+  .lead { max-width: 46rem; }
+  .lead h1 { font-size: var(--fs-display); line-height: var(--lh-display); letter-spacing: var(--track-display); }
+  h1 a, h2 a, .title a { text-decoration: none; }
+  h1 a:hover, h2 a:hover, .title a:hover { text-decoration: underline; text-decoration-thickness: 2px; text-decoration-color: var(--accent); }
+  .dek { margin-top: var(--s-5); margin-bottom: var(--s-4); font-size: var(--fs-dek); line-height: 1.55; color: var(--fg-soft); max-width: 38em; }
+
+  .facts { width: 100%; margin-top: var(--s-6); border-collapse: collapse; }
+  .facts tr:last-child { box-shadow: inset 0 calc(-1 * var(--hair)) 0 var(--rule); }
+  .facts th, .facts td { padding: var(--s-3) var(--s-4) var(--s-3) 0; text-align: left; vertical-align: baseline; }
+  .facts th { font-weight: 500; }
+  .facts td:nth-child(2) { color: var(--fg-soft); }
+  .facts .when { text-align: right; padding-right: 0; white-space: nowrap; }
+
+  .read {
+    display: inline-block; margin-top: var(--s-5); font-weight: 500;
+    text-decoration: underline; text-decoration-thickness: 1px;
+  }
+  .read:hover { text-decoration-color: var(--accent); }
+
+  .contents { border-left: var(--hair) solid var(--rule-strong); padding-left: var(--s-6); align-self: start; }
+  .contents h2 { font-size: var(--fs-h3); font-weight: 500; margin-bottom: var(--s-4); }
+  .contents ol { list-style: none; }
+  .contents li:last-child { box-shadow: inset 0 calc(-1 * var(--hair)) 0 var(--rule); }
+  .contents a { display: grid; grid-template-columns: 2.5rem 1fr; gap: var(--s-3); padding: var(--s-4) 0; text-decoration: none; }
+  .contents .n { font-family: var(--font-mono); font-size: var(--fs-num); color: var(--accent); padding-top: 0.35em; font-variant-numeric: tabular-nums; }
+  .contents .body { display: flex; flex-direction: column; gap: var(--s-2); }
+  .contents .t { font-family: var(--font-display); font-size: var(--fs-h3); line-height: var(--lh-head); font-weight: 600; text-wrap: balance; }
+  .contents a:hover .t { text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 1.5px; }
+
+  .data { background-color: var(--c-marble-deep); }
+  .data .grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--s-8); padding-block: var(--s-7); align-items: center; }
+  .data h2 { font-size: var(--fs-h2); }
+
+  .register { padding-top: var(--s-8); }
+  .register h2 { font-size: var(--fs-h2); margin-bottom: var(--s-5); }
+  .register table { width: 100%; border-collapse: collapse; }
+  .register thead tr { box-shadow: inset 0 calc(-1 * var(--hair)) 0 var(--rule-strong); }
+  .register thead th { text-align: left; font-weight: 400; padding: 0 var(--s-5) var(--s-3) 0; }
+  .register td, .register tbody th { padding: var(--s-4) var(--s-5) var(--s-4) 0; vertical-align: baseline; text-align: left; }
+  .register tbody tr:last-child { box-shadow: inset 0 calc(-1 * var(--hair)) 0 var(--rule); }
+  .register .date { width: 7rem; white-space: nowrap; }
+  .register .kind { width: 8rem; color: var(--fg); }
+  .register tbody tr { position: relative; }
+  .register .title a::after { content: ''; position: absolute; inset: 0; }
+  .register .title { font-family: var(--font-display); font-weight: 600; font-size: var(--fs-h3); line-height: var(--lh-head); }
+  .register .src, .register thead th.src { text-align: right; padding-right: 0; width: 16rem; }
+  .register tbody tr:hover { background-color: var(--c-marble-deep); }
+  .empty { color: var(--fg-muted); padding-block: var(--s-6); }
+
+  @media (max-width: 960px) {
+    .spread { grid-template-columns: 1fr; row-gap: var(--s-7); padding-block: var(--s-6); }
+    .contents { border-left: 0; padding-left: 0; }
+    .contents li.current { display: none; }
+    .data .grid { grid-template-columns: 1fr; gap: var(--s-6); }
+  }
+  @media (max-width: 720px) {
+    .issuebar .row { flex-direction: column; gap: var(--s-1); }
+    .facts tr { display: grid; grid-template-columns: 1fr auto; column-gap: var(--s-4); padding-block: var(--s-3); }
+    .facts th, .facts td { padding: 0; }
+    .facts td:nth-child(2) { grid-column: 1 / -1; grid-row: 2; }
+    .facts .when { grid-row: 1; grid-column: 2; }
+    .register thead { display: none; }
+    .register tbody tr { display: grid; grid-template-columns: auto 1fr; column-gap: var(--s-4); row-gap: var(--s-2); padding-block: var(--s-4); }
+    .register td, .register tbody th { padding: 0; width: auto; }
+    .register .title { grid-column: 1 / -1; grid-row: 2; }
+    .register .src { grid-column: 1 / -1; text-align: left; }
+    .register tbody tr:hover { background-color: transparent; }
+  }
+</style>

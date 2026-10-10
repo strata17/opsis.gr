@@ -1,0 +1,45 @@
+---
+import Wordmark from './Wordmark.astro';
+import { copy } from '../lib/copy';
+interface Props { current?: string }
+const { current = '/' } = Astro.props;
+---
+<header class="mast">
+  <div class="wrap inner">
+    <a class="brand" href="/" aria-label="Opsis, αρχική σελίδα">
+      <Wordmark />
+      <span class="tag">{copy.tagline}</span>
+    </a>
+    <nav aria-label="Κύρια πλοήγηση">
+      <ul>
+        {copy.nav.map((item) => (
+          <li><a href={item.href} aria-current={item.href === current ? 'page' : undefined}>{item.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+<style>
+  .mast { border-bottom: var(--hair) solid var(--rule-strong); }
+  .inner { display: flex; align-items: center; justify-content: space-between; gap: var(--s-5); min-height: 4.75rem; }
+  .brand { display: flex; align-items: center; gap: var(--s-5); text-decoration: none; }
+  .tag {
+    font-family: var(--font-mono); font-size: var(--fs-label); letter-spacing: var(--track-tag);
+    text-transform: uppercase; color: var(--fg-muted);
+  }
+  ul { display: flex; gap: var(--s-6); list-style: none; }
+  nav a {
+    display: inline-block; padding: var(--s-2) 0; font-size: var(--fs-small); font-weight: 500;
+    text-decoration: none; border-bottom: 1.5px solid transparent;
+    transition: border-color var(--dur-quick) ease-out;
+  }
+  nav a:hover { border-color: var(--rule-strong); }
+  nav a[aria-current='page'] { border-color: var(--accent); }
+  @media (max-width: 640px) {
+    .inner { flex-direction: column; align-items: stretch; gap: 0; min-height: 0; padding-top: var(--s-4); }
+    .brand { gap: var(--s-4); }
+    .tag { letter-spacing: 0.24em; }
+    ul { gap: var(--s-5); margin-top: var(--s-2); }
+    nav a { padding: var(--s-3) 0; }
+  }
+</style>
