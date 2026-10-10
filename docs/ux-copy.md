@@ -9,7 +9,7 @@ The strings live in `src/lib/copy.ts`. Change them there, not in templates.
 | Concept | Term | Never |
 |---|---|---|
 | A published piece | θέμα | άρθρο, post, ανάρτηση |
-| Piece types | Ανάλυση · Δεδομένα · Σχόλιο | Opinion, Γνώμη, Fact check |
+| Piece types | Ανάλυση · Δεδομένα · Σχόλιο · Έλεγχος | Opinion, Γνώμη, Fact check |
 | This week's set | τεύχος / η εβδομάδα | έκδοση, newsletter |
 | All past pieces | Αρχείο | Όλα, Blog |
 | Attribution | Πηγή / Πηγές | Αναφορές, Credits |

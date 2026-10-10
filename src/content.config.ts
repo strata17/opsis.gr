@@ -25,7 +25,13 @@ const themata = defineCollection({
     title: z.string(),
     keyFigure: z.string().optional(), // the one number, set in cinnabar in the headline
     dek: z.string(),
-    type: z.enum(['analysi', 'dedomena', 'sxolio']),
+    type: z.enum(['analysi', 'dedomena', 'sxolio', 'elegxos']),
+    claims: z.array(z.object({
+      claim: z.string(),          // what circulates, quoted without attribution
+      fact: z.string(),           // what the data says, one sentence
+      keyFigure: z.string().optional(),
+      source: z.string(),
+    })).optional(),
     date: z.coerce.date(),
     sourceLine: z.string(),   // short form for lists: "Eurostat, 2025"
     sources: z.array(source).min(1),

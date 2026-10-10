@@ -4,6 +4,7 @@ import SourceLine from '../components/SourceLine.astro';
 import BarFigure from '../components/BarFigure.astro';
 import Arrow from '../components/Arrow.astro';
 import Headline from '../components/Headline.astro';
+import ClaimLedger from '../components/ClaimLedger.astro';
 import { copy } from '../lib/copy';
 import { currentIssue, href } from '../lib/themata';
 import { shortDate, weekRange } from '../lib/format';
@@ -11,7 +12,8 @@ import { shortDate, weekRange } from '../lib/format';
 const { lead, pieces, week, items } = await currentIssue();
 const rest = pieces.slice(1);
 const dataPiece = items.find((t) => t.data.type === 'dedomena' && t.data.figure && t !== lead);
-const readLabel = { analysi: copy.issue.readLead, dedomena: copy.issue.readData, sxolio: copy.issue.readComment };
+const readLabel = { analysi: copy.issue.readLead, dedomena: copy.issue.readData, sxolio: copy.issue.readComment, elegxos: copy.issue.readClaim };
+const claimPiece = items.find((t) => t.data.type === 'elegxos' && t.data.claims?.length);
 ---
 <Base current="/">
   {lead && week ? (
@@ -65,6 +67,16 @@ const readLabel = { analysi: copy.issue.readLead, dedomena: copy.issue.readData,
       </section>
     </>
   ) : null}
+
+  {claimPiece?.data.claims && (
+    <section class="wrap claims" aria-labelledby="claims-title">
+      <div class="claims-head">
+        <h2 id="claims-title"><a href={href(claimPiece)}>{copy.claims.heading}</a></h2>
+        <a class="read" href={href(claimPiece)}>{copy.issue.readClaim}<Arrow /></a>
+      </div>
+      <ClaimLedger claims={claimPiece.data.claims} />
+    </section>
+  )}
 
   {dataPiece?.data.figure && (
     <section class="data rule-top-strong" aria-labelledby="data-title">
@@ -146,6 +158,10 @@ const readLabel = { analysi: copy.issue.readLead, dedomena: copy.issue.readData,
   .contents .t { font-family: var(--font-display); font-size: var(--fs-h3); line-height: var(--lh-head); font-weight: 600; text-wrap: balance; }
   .contents a:hover .t { text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 1.5px; }
 
+  .claims { padding-block: var(--s-6) var(--s-8); }
+  .claims-head { display: flex; justify-content: space-between; align-items: baseline; gap: var(--s-5); margin-bottom: var(--s-5); flex-wrap: wrap; }
+  .claims-head h2 { font-size: var(--fs-h2); }
+  .claims-head .read { margin-top: 0; }
   .data { background-color: var(--surface); }
   .data .grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--s-8); padding-block: var(--s-7); align-items: center; }
   .data h2 { font-size: var(--fs-h2); }

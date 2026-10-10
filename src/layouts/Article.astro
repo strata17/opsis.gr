@@ -4,6 +4,7 @@ import SourceLine from '../components/SourceLine.astro';
 import BarFigure from '../components/BarFigure.astro';
 import Arrow from '../components/Arrow.astro';
 import Headline from '../components/Headline.astro';
+import ClaimLedger from '../components/ClaimLedger.astro';
 import { copy } from '../lib/copy';
 import { longDate } from '../lib/format';
 import type { Thema } from '../lib/themata';
@@ -21,6 +22,8 @@ const d = thema.data;
     </header>
 
     {d.type === 'sxolio' && <p class="note">{copy.commentNote}</p>}
+
+    {d.claims && <div class="block"><ClaimLedger claims={d.claims} size="article" /></div>}
 
     {d.figure && <div class="block"><BarFigure {...d.figure} /></div>}
 

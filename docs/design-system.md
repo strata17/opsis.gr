@@ -28,6 +28,7 @@ This extends the brand kit (`03_brand_kit/opsis-brand-kit.html`, Marble Edition)
 | Masthead | `Masthead.astro` | Wordmark, tagline, primary nav | `current` (sets `aria-current`) |
 | SourceLine | `SourceLine.astro` | The line under every headline: type · date · ΠΗΓΗ · ΕΠΕΞΕΡΓΑΣΙΑ | `text`, `label`, `meta`, `processed` |
 | Headline | `Headline.astro` | Sets `keyFigure` in cinnabar inside a title | `title`, `figure` |
+| ClaimLedger | `ClaimLedger.astro` | Λέγεται / Τα στοιχεία claim check; one key figure per fact | `claims[]`, `size: page | article` |
 | BarFigure | `BarFigure.astro` | Horizontal bar chart as an accessible table | `title`, `rows[]`, `source`, `unit` |
 | Arrow | `Arrow.astro` | Hairline SVG arrow for links | `dir: right \| left` |
 | SampleNotice | `SampleNotice.astro` | Marks sample content; long and short copy | — |

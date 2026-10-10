@@ -1,0 +1,45 @@
+---
+// Λέγεται / Τα στοιχεία: the brand's claim-versus-facts move as a two-column ledger.
+import Headline from './Headline.astro';
+import { copy } from '../lib/copy';
+interface Claim { claim: string; fact: string; keyFigure?: string; source: string }
+interface Props { claims: Claim[]; size?: 'page' | 'article' }
+const { claims, size = 'page' } = Astro.props;
+---
+<div class:list={['ledger', size]} role="table" aria-label={`${copy.claims.said} / ${copy.claims.facts}`}>
+  <div class="head rule-top-strong" role="row">
+    <span class="mono" role="columnheader">{copy.claims.said}</span>
+    <span class="mono" role="columnheader">{copy.claims.facts}</span>
+  </div>
+  {claims.map((c, i) => (
+    <div class="pair rule-top" role="row" style={`--i:${i + 1}`}>
+      <p class="claim" role="cell"><span class="lbl mono">{copy.claims.said}</span>«{c.claim}»</p>
+      <div class="fact" role="cell">
+        <span class="lbl mono">{copy.claims.facts}</span>
+        <p class="f"><Headline title={c.fact} figure={c.keyFigure} /></p>
+        <p class="mono src">{copy.source}: <strong>{c.source}</strong></p>
+      </div>
+    </div>
+  ))}
+</div>
+<style>
+  .ledger { width: 100%; }
+  .head, .pair { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .head span { padding: var(--s-3) 0; }
+  .head span + span, .fact { padding-left: var(--s-6); border-left: var(--hair) solid var(--rule-strong); }
+  .pair:last-child { box-shadow: inset 0 calc(-1 * var(--hair)) 0 var(--rule); }
+  .claim, .fact { padding-block: var(--s-5) var(--s-6); }
+  .claim { padding-right: var(--s-6); font-family: var(--font-display); font-weight: 400; color: var(--fg-muted); font-size: var(--fs-h2); line-height: 1.22; text-wrap: balance; }
+  .f { font-family: var(--font-display); font-weight: 600; font-size: var(--fs-h2); line-height: 1.22; text-wrap: balance; }
+  .src { margin-top: var(--s-3); }
+  .lbl { display: none; }
+  .article .claim, .article .f { font-size: var(--fs-h3); }
+  @media (max-width: 720px) {
+    .head { display: none; }
+    .pair { grid-template-columns: 1fr; }
+    .fact { padding-left: 0; border-left: 0; padding-top: 0; }
+    .claim { padding-right: 0; padding-bottom: var(--s-4); }
+    .lbl { display: block; margin-bottom: var(--s-2); font-family: var(--font-mono); font-size: var(--fs-label); }
+    .fact .lbl { color: var(--fg); }
+  }
+</style>

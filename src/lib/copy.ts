@@ -15,6 +15,12 @@ export const copy = {
     readLead: 'Διάβασε την ανάλυση',
     readData: 'Δες τα στοιχεία',
     readComment: 'Διάβασε το σχόλιο',
+    readClaim: 'Δες όλο τον έλεγχο',
+  },
+  claims: {
+    said: 'Λέγεται',
+    facts: 'Τα στοιχεία',
+    heading: 'Λέγεται, αλλά',
   },
   register: {
     heading: 'Αρχείο',
@@ -25,6 +31,7 @@ export const copy = {
     analysi: 'Ανάλυση',
     dedomena: 'Δεδομένα',
     sxolio: 'Σχόλιο',
+    elegxos: 'Έλεγχος',
   },
   source: 'Πηγή',
   sources: 'Πηγές',

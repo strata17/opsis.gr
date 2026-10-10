@@ -241,6 +241,9 @@ Ordered issue index: cinnabar mono numerals (01, 02) in a 2.5rem column, serif 6
 ### Register
 A real table: mono column heads over a 1px ink rule, rows of mono date, mono type, serif title, mono source aligned right. The whole row is clickable through the title link and fills Marble Deep on hover (desktop only).
 
+### Claim Ledger (Λέγεται / Τα στοιχεία)
+The brand's claim-versus-facts move, from the carousels. Two columns under an ink top rule with mono column heads. The claim is set in serif 400 in the muted colour, inside «», with no attribution. The fact is serif 600 with its own key figure in the accent, followed by its mono source line. The columns are divided by a 1px strong hairline. Below 720px each pair stacks, and the column labels repeat in mono above each half. Used by the `elegxos` (Έλεγχος) post type, on its article page and as the «Λέγεται, αλλά» block on the homepage. The One Number Rule applies per claim: each fact may carry one cinnabar figure.
+
 ### Bar Figure
 Charts are accessible tables with a caption. Bars are 14px solid rectangles: ink by default, Ash for reference rows, cinnabar for the one highlighted row, whose label and value also go to 600 and cinnabar. Values are mono tabular, right-aligned. Source in a mono figcaption.
 
