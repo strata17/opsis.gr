@@ -11,6 +11,11 @@ const ok = platforms.filter((p) => p.status === 'ok');
 const total = ok.reduce((n, p) => n + (p.followers ?? 0), 0);
 const n = (v?: number) => (v == null ? '—' : v.toLocaleString('el-GR'));
 const now = new Date().toLocaleString('el-GR', { timeZone: 'Europe/Athens', dateStyle: 'medium', timeStyle: 'short' });
+const hint: Record<string, string> = {
+  YouTube: 'Έλεγξε ότι το YOUTUBE_API_KEY είναι API key (ξεκινά με «AIza»), όχι OAuth client ID, ότι το YouTube Data API v3 είναι ενεργό στο ίδιο project, και ότι το key δεν έχει περιορισμό «HTTP referrers». Μετά κάνε Redeploy.',
+  Instagram: 'Το access token διαρκεί 60 ημέρες. Αν έληξε, φτιάξε νέο long-lived token και αντικατέστησε το INSTAGRAM_ACCESS_TOKEN.',
+  TikTok: 'Αν το refresh token έληξε ή ανακλήθηκε, σύνδεσε ξανά την εφαρμογή και αντικατέστησε το TIKTOK_REFRESH_TOKEN.',
+};
 const setup: Record<string, string> = {
   TikTok: 'TikTok for Developers: εφαρμογή με Login Kit και τα scopes user.info.stats, video.list. Σύνδεση μία φορά για refresh token (ισχύει 365 ημέρες).',
   Instagram: 'Λογαριασμός Business ή Creator συνδεδεμένος με σελίδα Facebook. Meta for Developers: long-lived access token (60 ημέρες) και το Instagram user ID.',
@@ -45,7 +50,8 @@ const setup: Record<string, string> = {
       )}
       {p.status === 'error' && (
         <div class="state error" role="alert">
-          <p><strong>Η σύνδεση απέτυχε.</strong> Το {p.name} απάντησε: «{p.message}». Συνήθως φταίει token που έληξε. Ανανέωσέ το στο Vercel.</p>
+          <p><strong>Η σύνδεση απέτυχε.</strong> Το {p.name} απάντησε: «{p.message}».</p>
+          <p>{hint[p.name]}</p>
         </div>
       )}
       {p.status === 'ok' && (<>

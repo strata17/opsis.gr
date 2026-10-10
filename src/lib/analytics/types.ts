@@ -3,7 +3,11 @@ export type Platform =
   | { status: 'ok'; name: string; handle: string; url: string; followers?: number; totalViews?: number; totalLikes?: number; posts: number; recent: Post[] }
   | { status: 'missing'; name: string; needs: string[] }
   | { status: 'error'; name: string; message: string };
-export const env = (k: string) => (import.meta.env[k] as string | undefined) ?? process.env[k];
+// Trim whitespace and stray quotes: pasted keys often carry a newline or surrounding quotes.
+export const env = (k: string) => {
+  const v = ((import.meta.env[k] as string | undefined) ?? process.env[k])?.trim().replace(/^['"]|['"]$/g, '');
+  return v || undefined;
+};
 export async function getJSON(url: string, init?: RequestInit) {
   const r = await fetch(url, { ...init, signal: AbortSignal.timeout(8000) });
   const body = await r.json().catch(() => ({}));
