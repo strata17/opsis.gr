@@ -1,0 +1,44 @@
+---
+export const prerender = false;
+import Admin from '../../layouts/Admin.astro';
+import { COOKIE, checkPassword, configured, cookieOptions, sessionToken } from '../../lib/auth';
+
+let error = '';
+if (Astro.request.method === 'POST') {
+  const form = await Astro.request.formData();
+  if (checkPassword(String(form.get('password') ?? ''))) {
+    Astro.cookies.set(COOKIE, sessionToken(), cookieOptions);
+    return Astro.redirect('/admin', 303);
+  }
+  await new Promise((r) => setTimeout(r, 800)); // slow down guessing
+  error = 'Λάθος κωδικός. Δοκίμασε ξανά.';
+}
+Astro.response.headers.set('Cache-Control', 'no-store');
+---
+<Admin title="Σύνδεση">
+  <section class="login">
+    <h1>Σύνδεση</h1>
+    {configured() ? (
+      <form method="post">
+        <label for="pw">Κωδικός</label>
+        <input id="pw" name="password" type="password" autocomplete="current-password" required autofocus aria-invalid={error ? 'true' : undefined} aria-describedby={error ? 'err' : undefined} />
+        {error && <p id="err" class="err" role="alert">{error}</p>}
+        <button type="submit">Είσοδος</button>
+      </form>
+    ) : (
+      <p class="note">Η διαχείριση δεν έχει ρυθμιστεί. Όρισε τη μεταβλητή <code>ADMIN_PASSWORD</code> (τουλάχιστον 12 χαρακτήρες) στις ρυθμίσεις του Vercel και κάνε νέο deploy.</p>
+    )}
+  </section>
+</Admin>
+<style>
+  .login { max-width: 24rem; }
+  h1 { font-size: var(--fs-title); margin-bottom: var(--s-6); }
+  label { display: block; font-weight: 500; margin-bottom: var(--s-2); }
+  input { width: 100%; font: inherit; padding: var(--s-3); background: var(--bg); color: var(--fg); border: var(--hair) solid var(--rule-strong); border-radius: 0; }
+  input:focus-visible { outline: 2px solid var(--accent); outline-offset: 0; }
+  .err { color: var(--accent); margin-top: var(--s-2); font-size: var(--fs-small); }
+  button { margin-top: var(--s-5); font: 500 var(--fs-body) var(--font-text); background: var(--fg); color: var(--bg); border: 0; padding: var(--s-3) var(--s-6); cursor: pointer; }
+  button:hover { background: var(--accent); color: var(--c-marble); }
+  .note { color: var(--fg-soft); max-width: 40ch; }
+  code { font-family: var(--font-mono); font-size: 0.9em; }
+</style>

@@ -1,0 +1,35 @@
+---
+import '../styles/global.css';
+import Wordmark from '../components/Wordmark.astro';
+interface Props { title: string; signedIn?: boolean }
+const { title, signedIn = false } = Astro.props;
+---
+<!doctype html>
+<html lang="el">
+  <head>
+    <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>{title} · Opsis</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <script is:inline>try { const t = localStorage.getItem('opsis-theme'); if (t) document.documentElement.dataset.theme = t; } catch {}</script>
+  </head>
+  <body>
+    <header class="bar">
+      <div class="wrap in">
+        <a href="/" class="home" aria-label="Opsis, αρχική"><Wordmark size="1.5rem" /></a>
+        <span class="mono">Διαχείριση</span>
+        {signedIn && <form method="post" action="/admin/logout"><button type="submit">Αποσύνδεση</button></form>}
+      </div>
+    </header>
+    <main id="main" class="wrap"><slot /></main>
+  </body>
+</html>
+<style>
+  .bar { border-bottom: var(--hair) solid var(--rule-strong); }
+  .in { display: flex; align-items: center; gap: var(--s-5); min-height: 4rem; }
+  .home { text-decoration: none; }
+  form { margin-left: auto; }
+  button { font: 500 var(--fs-small) var(--font-text); background: none; border: 0; color: var(--fg); cursor: pointer; padding: var(--s-2) 0; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+  button:hover { text-decoration-color: var(--accent); }
+  main { padding-block: var(--s-7) var(--s-9); }
+</style>
