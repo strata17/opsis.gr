@@ -1,0 +1,21 @@
+---
+// Numbered source note: in the margin beside the line on wide screens, inline below it on narrow ones.
+interface Props { n: number | string }
+const { n } = Astro.props;
+---
+<sup class="ref"><a href={`#sn-${n}`} id={`ref-${n}`} aria-describedby={`sn-${n}`}>{n}</a></sup><span class="sn" id={`sn-${n}`} role="note"><span class="num">{n}</span><slot /></span>
+<style>
+  .ref { font-family: var(--font-mono); font-size: 0.7em; line-height: 0; margin-left: 0.1em; }
+  .ref a { color: var(--accent); text-decoration: none; padding: 0 0.15em; }
+  .sn {
+    display: block; margin: var(--s-3) 0 var(--s-2); padding-left: var(--s-4);
+    border-left: var(--hair) solid var(--rule); font-size: var(--fs-small); line-height: 1.5; color: var(--fg-soft);
+  }
+  .num { font-family: var(--font-mono); font-size: var(--fs-num); color: var(--accent); margin-right: var(--s-2); }
+  @media (min-width: 1180px) {
+    .sn {
+      float: right; clear: right; width: 15rem; margin: 0.25em calc(-15rem - var(--s-8)) var(--s-4) 0;
+      padding-left: 0; border-left: 0; padding-top: var(--s-2); border-top: var(--hair) solid var(--rule);
+    }
+  }
+</style>

@@ -244,6 +244,11 @@ A real table: mono column heads over a 1px ink rule, rows of mono date, mono typ
 ### Claim Ledger (Λέγεται / Τα στοιχεία)
 The brand's claim-versus-facts move, from the carousels. Two columns under an ink top rule with mono column heads. The claim is set in serif 400 in the muted colour, inside «», with no attribution. The fact is serif 600 with its own key figure in the accent, followed by its mono source line. The columns are divided by a 1px strong hairline. Below 720px each pair stacks, and the column labels repeat in mono above each half. Used by the `elegxos` (Έλεγχος) post type, on its article page and as the «Λέγεται, αλλά» block on the homepage. The One Number Rule applies per claim: each fact may carry one cinnabar figure.
 
+### Article Parts (MDX)
+- **Sidenote**: a cinnabar mono superscript number in the text. From 1180px the note floats into a 15rem right margin under a hairline. Below that it sits inline under the line, with a 1px rule on its left and soft text.
+- **Pull Quote**: serif 600 at h2 size between two strong hairlines, with a mono credit beneath. Used only for Opsis's own commentary lines.
+- **Video Slot**: a 9:16 ink frame with the marble wordmark and a hairline play icon, beside «Δες το σε βίντεο» and a mono platform and duration line. It links out to the platform; no third-party embed scripts.
+
 ### Bar Figure
 Charts are accessible tables with a caption. Bars are 14px solid rectangles: ink by default, Ash for reference rows, cinnabar for the one highlighted row, whose label and value also go to 600 and cinnabar. Values are mono tabular, right-aligned. Source in a mono figcaption.
 

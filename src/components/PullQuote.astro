@@ -1,0 +1,13 @@
+---
+interface Props { cite?: string }
+const { cite } = Astro.props;
+---
+<figure class="pq">
+  <blockquote><p><slot /></p></blockquote>
+  {cite && <figcaption class="mono">{cite}</figcaption>}
+</figure>
+<style>
+  .pq { margin: var(--s-7) 0; padding-block: var(--s-5); border-block: var(--hair) solid var(--rule-strong); }
+  blockquote p { font-family: var(--font-display); font-weight: 600; font-size: var(--fs-h2); line-height: 1.18; text-wrap: balance; margin: 0 !important; }
+  figcaption { margin-top: var(--s-3); }
+</style>

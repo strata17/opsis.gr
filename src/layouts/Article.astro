@@ -5,6 +5,7 @@ import BarFigure from '../components/BarFigure.astro';
 import Arrow from '../components/Arrow.astro';
 import Headline from '../components/Headline.astro';
 import ClaimLedger from '../components/ClaimLedger.astro';
+import VideoSlot from '../components/VideoSlot.astro';
 import { copy } from '../lib/copy';
 import { longDate } from '../lib/format';
 import type { Thema } from '../lib/themata';
@@ -20,6 +21,8 @@ const d = thema.data;
       <p class="dek">{d.dek}</p>
       <SourceLine meta={`${copy.types[d.type]} · ${longDate(d.date)}`} text={d.sourceLine} label={d.sources.length > 1 ? copy.sources : copy.source} processed={d.type !== 'sxolio'} />
     </header>
+
+    {d.video && <div class="block video-slot"><VideoSlot {...d.video} /></div>}
 
     {d.type === 'sxolio' && <p class="note">{copy.commentNote}</p>}
 
@@ -70,6 +73,11 @@ const d = thema.data;
 </Base>
 <style>
   .article { max-width: calc(46rem + 2 * var(--gutter)); padding-top: var(--s-6); }
+  @media (min-width: 1180px) {
+    .article { max-width: calc(46rem + 15rem + var(--s-8) + 2 * var(--gutter)); }
+    .article > * { max-width: 46rem; }
+    .video-slot { max-width: 30rem; }
+  }
   .back { display: inline-block; text-decoration: none; padding-block: var(--s-3); font-size: var(--fs-small); font-weight: 500; }
   .back:hover { text-decoration: underline; text-decoration-color: var(--accent); }
   .head { margin-top: var(--s-6); }
@@ -84,6 +92,7 @@ const d = thema.data;
   .facts .when { text-align: right; padding-right: 0; }
   .prose { margin-top: var(--s-7); max-width: var(--measure); }
   .prose :global(p) { margin-bottom: var(--s-4); }
+  .prose :global(figure) { margin: var(--s-6) 0; }
   .prose :global(h2) { font-size: var(--fs-h2); margin: var(--s-7) 0 var(--s-3); }
   .apparatus { margin-top: var(--s-8); padding-top: var(--s-6); }
   .apparatus h2 { font-size: var(--fs-h3); margin: var(--s-6) 0 var(--s-3); }

@@ -20,7 +20,7 @@ const figure = z.object({
 });
 
 const themata = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/themata' }),
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/themata' }),
   schema: z.object({
     title: z.string(),
     keyFigure: z.string().optional(), // the one number, set in cinnabar in the headline
@@ -38,6 +38,7 @@ const themata = defineCollection({
     figure: figure.optional(),
     facts: z.array(z.object({ label: z.string(), value: z.string(), when: z.string().optional() })).optional(),
     method: z.string().optional(),
+    video: z.object({ url: z.string().url(), platform: z.string(), duration: z.string().optional() }).optional(),
     corrections: z.array(z.object({ date: z.coerce.date(), text: z.string() })).default([]),
     lead: z.boolean().default(false),
     sample: z.boolean().default(false),
