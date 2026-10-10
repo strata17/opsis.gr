@@ -11,6 +11,10 @@ colors:
   marble-deep: "#DEDBD2"
   ink-soft: "#2B3038"
   rule: "#C4C0B5"
+  ink-raised: "#181E25"
+  rule-dark: "#2E353D"
+  marble-soft: "#CFCDC6"
+  rule-strong-dark: "#8C929A"
 typography:
   display:
     fontFamily: "'Noto Serif Display', 'Times New Roman', serif"
@@ -134,7 +138,7 @@ A warm stone ground with near-black ink and a single oxide-red accent, all taken
 
 ### Primary
 - **Cinnabar** (#B5301B): the accent on marble, 4.9:1. Marks the piece's one key figure inside its headline, the highlighted bar and its value in a chart, the numerals of ordered indexes (issue contents, article sources, method list), the active nav underline, the focus ring, the text caret, and hover underlines on headline and read links. Also the pupil of the wordmark's eye.
-- **Cinnabar Lift** (#E0553A): cinnabar's form on ink. Used only inside the ink footer (link hover underline, wordmark pupil).
+- **Cinnabar Lift** (#E0553A): cinnabar's form on ink, 4.9:1. In the light theme it appears only inside the ink footer (link hover underline, wordmark pupil). In the dark theme it takes over every cinnabar role.
 
 ### Neutral
 - **Pentelic Marble** (#E8E6DF): the page ground everywhere, and the text colour on the ink footer and selection.
@@ -144,6 +148,24 @@ A warm stone ground with near-black ink and a single oxide-red accent, all taken
 - **Ash** (#A5AAB1): comparison and reference bars in charts, and secondary text on ink.
 - **Marble Deep** (#DEDBD2): tonal fills only: the data band, the sample notice, the commentary note, and register-row hover.
 - **Rule** (#C4C0B5): the 1px hairlines between rows in tables, contents and lists.
+
+### Dark theme
+The brand kit's ink edition, applied by swapping colour roles in `src/styles/tokens.css`. Components use roles only (`--bg`, `--fg`, `--surface`, `--bar`, `--mark`, `--pupil` and so on), never brand names. The page follows `prefers-color-scheme` unless the reader picks a theme with the masthead toggle, which sets `data-theme` on `<html>` and stores it in `localStorage` (`opsis-theme`). An inline head script applies the stored choice before first paint.
+
+| Role | Light | Dark |
+|---|---|---|
+| Ground | Pentelic Marble #E8E6DF | Ink #0F1419 |
+| Text | Ink | Pentelic Marble (14.8:1) |
+| Long secondary text | Ink Soft #2B3038 | Marble Soft #CFCDC6 |
+| Muted (mono, dates) | Slate (5.1:1) | Ash (7.9:1) |
+| Accent | Cinnabar | Cinnabar Lift (4.9:1) |
+| Strong hairline | Ink | Rule Strong Dark #8C929A |
+| Row hairline | Rule #C4C0B5 | Rule Dark #2E353D |
+| Fill (bands, notice, hover) | Marble Deep #DEDBD2 | Ink Raised #181E25 |
+| Chart bars / reference bars | Ink / Ash | Marble / Slate |
+| Footer ground | Ink | Ink Raised, with a top hairline |
+
+The One Number Rule holds in both themes: lifted cinnabar still marks only the key figure and the navigation signals.
 
 ### Named Rules
 **The One Number Rule.** Cinnabar marks the single figure a piece rests on (its `keyFigure`), set inside the headline by the Headline component, and the matching highlighted bar and value. Never colour body text, labels, or a second number in a piece.
@@ -225,8 +247,11 @@ Charts are accessible tables with a caption. Bars are 14px solid rectangles: ink
 ### Sample Notice and Commentary Note
 Full-width Marble Deep strip with centred 13px Ink Soft text (short copy below 640px). The commentary note in articles uses the same fill with Plex 500 text and 16/24px padding.
 
+### Theme Toggle
+In the masthead nav after the links: an authored half-filled circle icon and the label «Θέμα» (icon only below 640px). It is a `<button>` with `aria-pressed`, and its `aria-label` names the theme it switches to («Σκούρο θέμα» / «Φωτεινό θέμα»). The icon turns 180° when dark is active; the turn is skipped under reduced motion. It also updates `theme-color` for the browser chrome.
+
 ### Footer
-Ink ground, marble text, wordmark in marble tone with cinnabar-lift pupil, Ash secondary text.
+Ink ground (Ink Raised in dark, with a top hairline), marble text, wordmark in marble tone with cinnabar-lift pupil, Ash secondary text.
 
 ### Motion
 On load, hairline rules draw from 0 to 100% width over 900ms (`cubic-bezier(0.16, 1, 0.3, 1)`), staggered 45ms per row after a 120ms start; chart bars grow from the left on the same curve. Both run once and only under `prefers-reduced-motion: no-preference`. Hover transitions are 160ms ease-out.
@@ -237,7 +262,8 @@ On load, hairline rules draw from 0 to 100% width over 900ms (`cubic-bezier(0.16
 - **Do** put a mono source line directly under every headline that makes a claim.
 - **Do** set the piece's one key figure in cinnabar through the Headline component, and highlight at most one bar per chart.
 - **Do** build structure with 1px hairlines: ink for section boundaries, Rule grey (#C4C0B5) between rows.
-- **Do** use Marble Deep (#DEDBD2) as the only fill for bands, notices and row hover.
+- **Do** use the `--surface` role (Marble Deep in light, Ink Raised in dark) as the only fill for bands, notices and row hover.
+- **Do** colour components through roles, so both themes stay correct; check every new colour against both grounds.
 - **Do** set every serif headline at weight 600.
 - **Do** present data and archives as real tables with captions and row headers.
 - **Do** gate every load animation behind `prefers-reduced-motion: no-preference`.

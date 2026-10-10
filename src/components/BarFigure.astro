@@ -26,12 +26,12 @@ const max = Math.max(...rows.map((r) => r.value));
   caption { text-align: left; font-weight: 600; font-size: var(--fs-small); padding-bottom: var(--s-3); }
   th { text-align: left; font-weight: 400; font-size: var(--fs-small); padding: var(--s-1) var(--s-3) var(--s-1) 0; white-space: nowrap; width: 1%; }
   .bar { width: 100%; padding: var(--s-1) 0; }
-  .bar span { display: block; height: 0.875rem; width: var(--w); background: var(--c-ink); }
+  .bar span { display: block; height: 0.875rem; width: var(--w); background: var(--bar); }
   .val { font-family: var(--font-mono); font-size: var(--fs-num); text-align: right; padding-left: var(--s-3); font-variant-numeric: tabular-nums; white-space: nowrap; }
   .hl th { font-weight: 600; }
   .hl .val { font-weight: 600; color: var(--accent); }
   .hl .bar span { background: var(--accent); }
-  .ref .bar span { background: var(--c-ash); }
+  .ref .bar span { background: var(--bar-ref); }
   figcaption { margin-top: var(--s-3); }
   @media (prefers-reduced-motion: no-preference) {
     .bar span { animation: grow var(--dur-draw) var(--ease-out) both; animation-delay: 220ms; transform-origin: left; }

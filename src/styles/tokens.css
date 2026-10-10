@@ -21,6 +21,18 @@
   --accent: var(--c-cinnabar);
   --rule-strong: var(--c-ink);
   --rule: var(--c-rule);
+  --surface: var(--c-marble-deep);   /* quiet fills: data band, notices, hover */
+  --bar: var(--c-ink);
+  --bar-ref: var(--c-ash);
+  --mark: var(--c-ink);              /* wordmark letters and eye */
+  --pupil: var(--c-cinnabar);
+  --select-bg: var(--c-ink);
+  --select-fg: var(--c-marble);
+  --foot-bg: var(--c-ink);
+  --foot-fg: var(--c-marble);
+  --foot-muted: var(--c-ash);
+  --foot-accent: var(--c-cinnabar-lift);
+  color-scheme: light;
 
   /* Type families */
   --font-display: 'Noto Serif Display', 'Times New Roman', serif;
@@ -58,4 +70,55 @@
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --dur-draw: 900ms;
   --dur-quick: 160ms;
+}
+
+/* Dark: the brand kit's ink edition. Marble on ink 14.8:1, ash on ink 7.9:1, lifted cinnabar on ink 4.9:1.
+   Follows the system unless the reader picked a theme (data-theme on <html>). */
+:root[data-theme='dark'] {
+  --c-ink-raised: #181E25;  /* derived: quiet fills on ink */
+  --c-rule-dark: #2E353D;   /* derived: row hairlines on ink */
+  --bg: var(--c-ink);
+  --fg: var(--c-marble);
+  --fg-soft: #CFCDC6;
+  --fg-muted: var(--c-ash);
+  --accent: var(--c-cinnabar-lift);
+  --rule-strong: #8C929A;
+  --rule: var(--c-rule-dark);
+  --surface: var(--c-ink-raised);
+  --bar: var(--c-marble);
+  --bar-ref: var(--c-slate);
+  --mark: var(--c-marble);
+  --pupil: var(--c-cinnabar-lift);
+  --select-bg: var(--c-marble);
+  --select-fg: var(--c-ink);
+  --foot-bg: var(--c-ink-raised);
+  --foot-fg: var(--c-marble);
+  --foot-muted: var(--c-ash);
+  --foot-accent: var(--c-cinnabar-lift);
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --c-ink-raised: #181E25;
+    --c-rule-dark: #2E353D;
+    --bg: var(--c-ink);
+    --fg: var(--c-marble);
+    --fg-soft: #CFCDC6;
+    --fg-muted: var(--c-ash);
+    --accent: var(--c-cinnabar-lift);
+    --rule-strong: #8C929A;
+    --rule: var(--c-rule-dark);
+    --surface: var(--c-ink-raised);
+    --bar: var(--c-marble);
+    --bar-ref: var(--c-slate);
+    --mark: var(--c-marble);
+    --pupil: var(--c-cinnabar-lift);
+    --select-bg: var(--c-marble);
+    --select-fg: var(--c-ink);
+    --foot-bg: var(--c-ink-raised);
+    --foot-fg: var(--c-marble);
+    --foot-muted: var(--c-ash);
+    --foot-accent: var(--c-cinnabar-lift);
+    color-scheme: dark;
+  }
 }

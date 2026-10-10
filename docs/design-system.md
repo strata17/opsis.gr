@@ -12,6 +12,7 @@ This extends the brand kit (`03_brand_kit/opsis-brand-kit.html`, Marble Edition)
 | Type | `--font-display` Noto Serif Display, `--font-text` IBM Plex Sans, `--font-mono` JetBrains Mono | Self-hosted Greek and Latin subsets in `public/fonts` |
 | Scale | `--fs-display` 40–68px, `--fs-title` 34–56, `--fs-h2` 24–32, `--fs-h3` 19–24, `--fs-dek` 17–20, `--fs-body` 17, `--fs-small` 15, `--fs-label` 12 | Fluid between 390 and 1440px |
 | Space | `--s-1` … `--s-9` (4 to 96px), `--gutter` 16–56px, `--measure` 68ch | More space above a heading than below |
+| Themes | light (default), dark via `prefers-color-scheme` or the masthead toggle | Roles swap in `tokens.css`; components never use brand names |
 | Motion | `--ease-out`, `--dur-draw` 900ms, `--dur-quick` 160ms | On load, rules draw and chart bars grow left to right; all gated by reduced motion |
 
 ### Colour rules
@@ -30,6 +31,7 @@ This extends the brand kit (`03_brand_kit/opsis-brand-kit.html`, Marble Edition)
 | BarFigure | `BarFigure.astro` | Horizontal bar chart as an accessible table | `title`, `rows[]`, `source`, `unit` |
 | Arrow | `Arrow.astro` | Hairline SVG arrow for links | `dir: right \| left` |
 | SampleNotice | `SampleNotice.astro` | Marks sample content; long and short copy | — |
+| ThemeToggle | `ThemeToggle.astro` | Light/dark switch, remembers the choice | — |
 | Footer | `Footer.astro` | Statement and social links on ink | — |
 
 ### Patterns

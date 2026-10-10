@@ -1,0 +1,43 @@
+---
+import { copy } from '../lib/copy';
+---
+<button class="theme" type="button" aria-pressed="false" data-theme-toggle
+  data-label-dark={copy.theme.toDark} data-label-light={copy.theme.toLight} aria-label={copy.theme.toDark}>
+  <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" focusable="false">
+    <circle cx="10" cy="10" r="8.25" fill="none" stroke="currentColor" stroke-width="1.5" />
+    <path d="M10 1.75 A8.25 8.25 0 0 1 10 18.25 Z" fill="currentColor" />
+  </svg>
+  <span class="label">{copy.theme.label}</span>
+</button>
+<script>
+  const btn = document.querySelector<HTMLButtonElement>('[data-theme-toggle]');
+  const root = document.documentElement;
+  const current = () => root.dataset.theme ?? (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  const sync = () => {
+    if (!btn) return;
+    const dark = current() === 'dark';
+    btn.setAttribute('aria-pressed', String(dark));
+    btn.setAttribute('aria-label', (dark ? btn.dataset.labelLight : btn.dataset.labelDark) ?? '');
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', dark ? '#0F1419' : '#E8E6DF');
+  };
+  btn?.addEventListener('click', () => {
+    const next = current() === 'dark' ? 'light' : 'dark';
+    root.dataset.theme = next;
+    try { localStorage.setItem('opsis-theme', next); } catch {}
+    sync();
+  });
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', sync);
+  sync();
+</script>
+<style>
+  .theme {
+    display: inline-flex; align-items: center; gap: var(--s-2);
+    background: none; border: 0; color: var(--fg); cursor: pointer;
+    font: 500 var(--fs-small) / 1 var(--font-text); padding: var(--s-2) 0; min-height: 2.75rem;
+  }
+  .theme svg { transition: transform var(--dur-quick) ease-out; }
+  .theme:hover .label { text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 0.2em; }
+  .theme[aria-pressed='true'] svg { transform: rotate(180deg); }
+  @media (prefers-reduced-motion: reduce) { .theme svg { transition: none; } }
+  @media (max-width: 640px) { .label { display: none; } }
+</style>

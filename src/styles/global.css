@@ -8,7 +8,7 @@ html {
   background: var(--bg);
   color: var(--fg);
   -webkit-text-size-adjust: 100%;
-  scrollbar-color: var(--c-slate) var(--c-marble-deep);
+  scrollbar-color: var(--fg-muted) var(--surface);
 }
 body {
   font-family: var(--font-text);
@@ -24,7 +24,7 @@ body {
 main { flex: 1; }
 img, svg { display: block; max-width: 100%; }
 
-::selection { background: var(--c-ink); color: var(--c-marble); }
+::selection { background: var(--select-bg); color: var(--select-fg); }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 input, textarea { caret-color: var(--accent); }
 
@@ -64,7 +64,7 @@ h1, h2, h3 {
 
 .skip {
   position: absolute; left: var(--gutter); top: -100px; z-index: 10;
-  background: var(--c-ink); color: var(--c-marble); padding: var(--s-2) var(--s-4);
+  background: var(--fg); color: var(--bg); padding: var(--s-2) var(--s-4);
   font-weight: 500; text-decoration: none;
 }
 .skip:focus { top: var(--s-3); }

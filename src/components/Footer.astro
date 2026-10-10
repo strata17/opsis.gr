@@ -13,14 +13,14 @@ import { copy } from '../lib/copy';
   </div>
 </footer>
 <style>
-  .foot { background: var(--c-ink); color: var(--c-marble); margin-top: var(--s-9); }
+  .foot { background: var(--foot-bg); color: var(--foot-fg); border-top: var(--hair) solid var(--rule); margin-top: var(--s-9); }
   .inner { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: var(--s-6); padding-block: var(--s-7); }
   .statement, .follow { font-size: var(--fs-small); }
   .statement { max-width: 46ch; }
-  .follow { color: var(--c-ash); }
-  .follow strong { color: var(--c-marble); font-weight: 500; }
-  .follow a { color: var(--c-marble); display: inline-block; padding-block: var(--s-2); }
-  .follow a:hover { text-decoration-color: var(--c-cinnabar-lift); }
-  .foot :global(::selection) { background: var(--c-marble); color: var(--c-ink); }
+  .follow { color: var(--foot-muted); }
+  .follow strong { color: var(--foot-fg); font-weight: 500; }
+  .follow a { color: var(--foot-fg); display: inline-block; padding-block: var(--s-2); }
+  .follow a:hover { text-decoration-color: var(--foot-accent); }
+  .foot :global(::selection) { background: var(--foot-fg); color: var(--foot-bg); }
   @media (max-width: 760px) { .inner { grid-template-columns: 1fr; gap: var(--s-4); } }
 </style>

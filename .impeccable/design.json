@@ -225,7 +225,23 @@
         "value": "2px solid cinnabar, offset 3px",
         "purpose": "Focus ring on every interactive element."
       }
-    ]
+    ],
+    "themes": {
+      "default": "system",
+      "toggle": "data-theme on <html>, persisted in localStorage 'opsis-theme'",
+      "dark": {
+        "bg": "#0F1419",
+        "fg": "#E8E6DF",
+        "fgSoft": "#CFCDC6",
+        "fgMuted": "#A5AAB1",
+        "accent": "#E0553A",
+        "ruleStrong": "#8C929A",
+        "rule": "#2E353D",
+        "surface": "#181E25",
+        "bar": "#E8E6DF",
+        "barRef": "#5A6068"
+      }
+    }
   },
   "components": [
     {
