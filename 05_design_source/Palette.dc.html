@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Color</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;family=Noto+Serif+Display:wght@600&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1760px; height: 560px; box-sizing: border-box; padding: 64px; background: #C9C6BE; display: flex; flex-direction: column; gap: 28px">
+  <div style="display: flex; justify-content: space-between; align-items: baseline; font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.14em; color: #2B3038">
+    <span>OPSIS / COLOR</span>
+    <span>RATIOS ARE APPROXIMATE WCAG CONTRAST</span>
+  </div>
+
+  <div style="display: flex; gap: 24px; flex: 1">
+
+    <div style="flex: 1; box-sizing: border-box; background: #E8E6DF; color: #0F1419; padding: 24px; display: flex; flex-direction: column; justify-content: space-between">
+      <div style="font-family: 'Noto Serif Display', serif; font-weight: 600; font-size: 26px; line-height: 1.1">Pentelic Marble</div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.12em; line-height: 1.7">#E8E6DF<br>GROUND, LIGHT<br>INK ON MARBLE 14.8:1</div>
+    </div>
+
+    <div style="flex: 1; box-sizing: border-box; background: #0F1419; color: #E8E6DF; padding: 24px; display: flex; flex-direction: column; justify-content: space-between">
+      <div style="font-family: 'Noto Serif Display', serif; font-weight: 600; font-size: 26px; line-height: 1.1">Ink</div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.12em; line-height: 1.7">#0F1419<br>GROUND, DARK<br>MARBLE ON INK 14.8:1</div>
+    </div>
+
+    <div style="flex: 1; display: flex; flex-direction: column">
+      <div style="flex: 1; box-sizing: border-box; background: #B5301B; color: #E8E6DF; padding: 20px 24px; display: flex; flex-direction: column; justify-content: space-between">
+        <div style="font-family: 'Noto Serif Display', serif; font-weight: 600; font-size: 26px; line-height: 1.1">Cinnabar</div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.12em; line-height: 1.7">#B5301B / ACCENT ON MARBLE 4.9:1</div>
+      </div>
+      <div style="flex: 1; box-sizing: border-box; background: #E0553A; color: #0F1419; padding: 20px 24px; display: flex; flex-direction: column; justify-content: space-between">
+        <div style="font-family: 'Noto Serif Display', serif; font-weight: 600; font-size: 26px; line-height: 1.1">Cinnabar, lifted</div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.12em; line-height: 1.7">#E0553A / ACCENT ON INK 4.9:1</div>
+      </div>
+    </div>
+
+    <div style="flex: 1; display: flex; flex-direction: column">
+      <div style="flex: 1; box-sizing: border-box; background: #5A6068; color: #E8E6DF; padding: 20px 24px; display: flex; flex-direction: column; justify-content: space-between">
+        <div style="font-family: 'Noto Serif Display', serif; font-weight: 600; font-size: 26px; line-height: 1.1">Slate</div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.12em; line-height: 1.7">#5A6068 / SECONDARY ON MARBLE 5.1:1</div>
+      </div>
+      <div style="flex: 1; box-sizing: border-box; background: #A5AAB1; color: #0F1419; padding: 20px 24px; display: flex; flex-direction: column; justify-content: space-between">
+        <div style="font-family: 'Noto Serif Display', serif; font-weight: 600; font-size: 26px; line-height: 1.1">Ash</div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.12em; line-height: 1.7">#A5AAB1 / SECONDARY ON INK 7.9:1</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="display: flex; align-items: center; gap: 24px; height: 40px">
+    <div style="width: 150px; flex: none; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #2B3038">PROPORTION</div>
+    <div style="flex: 1; height: 40px; display: flex">
+      <div style="flex: 45; background: #0F1419"></div>
+      <div style="flex: 45; background: #E8E6DF"></div>
+      <div style="flex: 7; background: #B5301B"></div>
+      <div style="flex: 3; background: #5A6068"></div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1760,"height":560}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

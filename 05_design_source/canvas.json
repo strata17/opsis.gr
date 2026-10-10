@@ -1,0 +1,148 @@
+{
+  "v": 3,
+  "attachments": {},
+  "boards": {
+    "Avatars.dc.html": {
+      "h": 620,
+      "title": "Avatar options",
+      "w": 1760,
+      "x": 1840,
+      "y": 1060
+    },
+    "Carousel.dc.html": {
+      "h": 820,
+      "title": "Carousel preview",
+      "w": 1760,
+      "x": 0,
+      "y": 2940
+    },
+    "Main.dc.html": {
+      "h": 900,
+      "title": "Logo directions",
+      "w": 1760,
+      "x": 0,
+      "y": 0
+    },
+    "Palette.dc.html": {
+      "h": 560,
+      "title": "Color",
+      "w": 1760,
+      "x": 0,
+      "y": 2260
+    },
+    "Profile.dc.html": {
+      "h": 640,
+      "title": "Avatar and small sizes",
+      "w": 1760,
+      "x": 0,
+      "y": 3880
+    },
+    "T1-Cover.dc.html": {
+      "h": 1350,
+      "title": "T1 Cover",
+      "w": 1080,
+      "x": 0,
+      "y": 4900
+    },
+    "T2-Statement.dc.html": {
+      "h": 1350,
+      "title": "T2 Statement",
+      "w": 1080,
+      "x": 1160,
+      "y": 4900
+    },
+    "T3-Data.dc.html": {
+      "h": 1350,
+      "title": "T3 Data",
+      "w": 1080,
+      "x": 2320,
+      "y": 4900
+    },
+    "T4-Quote.dc.html": {
+      "h": 1350,
+      "title": "T4 Quote",
+      "w": 1080,
+      "x": 3480,
+      "y": 4900
+    },
+    "T5-Claim.dc.html": {
+      "h": 1350,
+      "title": "T5 Claim vs data",
+      "w": 1080,
+      "x": 0,
+      "y": 6370
+    },
+    "T6-Single.dc.html": {
+      "h": 1350,
+      "title": "T6 Single post",
+      "w": 1080,
+      "x": 1160,
+      "y": 6370
+    },
+    "T7-Closing.dc.html": {
+      "h": 1350,
+      "title": "T7 Closing",
+      "w": 1080,
+      "x": 2320,
+      "y": 6370
+    },
+    "Type.dc.html": {
+      "h": 1120,
+      "title": "Typography",
+      "w": 1760,
+      "x": 0,
+      "y": 1020
+    },
+    "Variations.dc.html": {
+      "h": 940,
+      "title": "Aperture variations",
+      "w": 1760,
+      "x": 1840,
+      "y": 0
+    }
+  },
+  "createdOnFiles": {
+    "at": "2026-10-09T08:10:00Z",
+    "v": 1
+  },
+  "designSystems": [],
+  "launch": {
+    "view": "canvas"
+  },
+  "notes": {
+    "t1": {
+      "kind": "title1",
+      "maxW": 1760,
+      "text": "Opsis identity, round 1",
+      "w": 240,
+      "x": 0,
+      "y": -300
+    },
+    "t2": {
+      "kind": "title1",
+      "maxW": 4560,
+      "text": "Post templates, 1080 x 1350",
+      "w": 240,
+      "x": 0,
+      "y": 4600
+    }
+  },
+  "order": [
+    "Main.dc.html",
+    "Variations.dc.html",
+    "Avatars.dc.html",
+    "Type.dc.html",
+    "Palette.dc.html",
+    "Carousel.dc.html",
+    "Profile.dc.html",
+    "T1-Cover.dc.html",
+    "T2-Statement.dc.html",
+    "T3-Data.dc.html",
+    "T4-Quote.dc.html",
+    "T5-Claim.dc.html",
+    "T6-Single.dc.html",
+    "T7-Closing.dc.html"
+  ],
+  "pages": [],
+  "title": "Opsis Identity"
+}

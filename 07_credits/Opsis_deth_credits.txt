@@ -1,0 +1,12 @@
+Opsis: ΔΕΘ measures poll video, credits (all photos from Wikimedia Commons)
+
+Credits comment (paste as first comment):
+Φωτογραφίες: Wikimedia Commons: European People's Party (CC BY 2.0), Hermann Hammer (CC BY-SA 4.0), Rakoon (CC0). Επεξεργασία: Opsis.
+Πηγή: Δημοσκόπηση Alco για τον Alpha, δημοσιεύθηκε 21/9/2026 (via naftemporiki.gr): τα μέτρα του πρωθυπουργού ωφελούν εσάς και την οικογένειά σας; πολύ 2% · καθόλου 48% · καθόλου ικανοποιημένοι από την κυβέρνηση 58% · θέλουν αλλαγή διακυβέρνησης 67%.
+
+Photos:
+- "Kyriakos Mitsotakis, 5 October 2021 (cropped).jpg" and "EPP Congress Bucharest - Day 2 3C1A4246 (53573352154) (cropped).jpg", European People's Party, CC BY 2.0
+- "White Tower in Thessaloniki.jpg", Hermann Hammer, CC BY-SA 4.0
+- "20170808 124856 Μέγαρο Μαξίμου Athens.jpg", Rakoon, CC0
+Changes: black and white, graded, cropped, cut out, painted overlays.
+The closing line ("Μέτρα για όλους. Που τα νιώθουν πολύ, δύο στους εκατό.") is Opsis commentary on the 2% figure.
