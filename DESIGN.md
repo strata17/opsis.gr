@@ -265,7 +265,13 @@ Ink ground (Ink Raised in dark, with a top hairline), marble text, wordmark in m
 1200×630 PNGs generated at build time for every piece and the homepage (`/og/<slug>.png`, `src/og/render.ts`, satori + resvg). Always the light Marble edition, so a shared link looks the same everywhere. Layout: the wordmark top left and the mono tagline top right; the headline in Noto Serif Display 600 (88, 72 or 60px by length) with the key figure in cinnabar; a 2px ink rule; mono type · date on the left and the source on the right. Greek capitals drop their accents. Fonts are TTF copies of the self-hosted brand faces, with the Greek and Latin subsets merged.
 
 ### Motion
-On load, hairline rules draw from 0 to 100% width over 900ms (`cubic-bezier(0.16, 1, 0.3, 1)`), staggered 45ms per row after a 120ms start; chart bars grow from the left on the same curve. Both run once and only under `prefers-reduced-motion: no-preference`. Hover transitions are 160ms ease-out.
+All motion is gated: an inline head script adds `html.motion` only when reduced motion is off, and `src/lib/motion.ts` never runs otherwise. Content is fully visible without JavaScript. Easing is `cubic-bezier(0.16, 1, 0.3, 1)` (expo out).
+- **Rules draw**: hairline rules draw from 0 to 100% width on load (900ms, 45ms stagger).
+- **The eye opens**: once per browser session, the masthead O mark opens from a slit (700ms) and the pupil settles with a slight overshoot.
+- **Bars and figures on reveal**: charts grow their bars when scrolled into view (1100ms, staggered). Key figures in headlines and highlighted chart values count up from zero in Greek number format, and screen readers get the final value.
+- **The claim is struck through**: in the claim ledger, a 1.5px accent rule draws through each claim (900ms) as its fact comes up from 35% opacity.
+- **Source link**: hovering or focusing a sidenote number fills it with the accent and lights its note on the surface fill, and the note lights the number back.
+- Hover transitions are 160ms ease-out.
 
 ## Do's and Don'ts
 

@@ -12,8 +12,8 @@ const { claims, size = 'page' } = Astro.props;
     <span class="mono" role="columnheader">{copy.claims.facts}</span>
   </div>
   {claims.map((c, i) => (
-    <div class="pair rule-top" role="row" style={`--i:${i + 1}`}>
-      <p class="claim" role="cell"><span class="lbl mono">{copy.claims.said}</span>«{c.claim}»</p>
+    <div class="pair rule-top" role="row" style={`--i:${i + 1}`} data-reveal>
+      <p class="claim" role="cell"><span class="lbl mono">{copy.claims.said}</span><span class="said">«{c.claim}»</span></p>
       <div class="fact" role="cell">
         <span class="lbl mono">{copy.claims.facts}</span>
         <p class="f"><Headline title={c.fact} figure={c.keyFigure} /></p>
@@ -32,6 +32,15 @@ const { claims, size = 'page' } = Astro.props;
   .claim { padding-right: var(--s-6); font-family: var(--font-display); font-weight: 400; color: var(--fg-muted); font-size: var(--fs-h2); line-height: 1.22; text-wrap: balance; }
   .f { font-family: var(--font-display); font-weight: 600; font-size: var(--fs-h2); line-height: 1.22; text-wrap: balance; }
   .src { margin-top: var(--s-3); }
+  .said {
+    background: linear-gradient(var(--accent), var(--accent)) no-repeat 0 58% / 100% 1.5px;
+    -webkit-box-decoration-break: clone; box-decoration-break: clone;
+  }
+  :global(html.motion) .pair:not(.in) .said { background-size: 0% 1.5px; }
+  :global(html.motion) .pair.in .said { animation: strike 900ms var(--ease-out) 350ms both; }
+  :global(html.motion) .pair:not(.in) .fact { opacity: 0.35; }
+  :global(html.motion) .pair .fact { transition: opacity 500ms var(--ease-out) 900ms; }
+  @keyframes strike { from { background-size: 0% 1.5px; } to { background-size: 100% 1.5px; } }
   .lbl { display: none; }
   .article .claim, .article .f { font-size: var(--fs-h3); }
   @media (max-width: 720px) {

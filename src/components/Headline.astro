@@ -4,5 +4,5 @@ interface Props { title: string; figure?: string }
 const { title, figure } = Astro.props;
 const i = figure ? title.indexOf(figure) : -1;
 ---
-{i < 0 ? title : <>{title.slice(0, i)}<em class="key">{figure}</em>{title.slice(i + figure!.length)}</>}
+{i < 0 ? title : <>{title.slice(0, i)}<em class="key" data-count>{figure}</em>{title.slice(i + figure!.length)}</>}
 <style>.key { font-style: normal; color: var(--accent); }</style>

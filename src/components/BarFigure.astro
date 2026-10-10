@@ -5,7 +5,7 @@ interface Props { title: string; rows: Row[]; source: string; unit?: string; com
 const { title, rows, source, unit = '', compact = false } = Astro.props;
 const max = Math.max(...rows.map((r) => r.value));
 ---
-<figure class:list={['fig', { compact }]}>
+<figure class:list={['fig', { compact }]} data-reveal>
   <table>
     <caption>{title}</caption>
     <tbody>
@@ -13,7 +13,7 @@ const max = Math.max(...rows.map((r) => r.value));
         <tr class:list={{ hl: r.highlight, ref: r.reference }}>
           <th scope="row">{r.label}</th>
           <td class="bar" aria-hidden="true"><span style={`--w:${(r.value / max) * 100}%`}></span></td>
-          <td class="val">{num(r.value)}{unit}</td>
+          <td class="val"><span data-count={r.highlight ? '' : undefined}>{num(r.value)}{unit}</span></td>
         </tr>
       ))}
     </tbody>
@@ -33,9 +33,12 @@ const max = Math.max(...rows.map((r) => r.value));
   .hl .bar span { background: var(--accent); }
   .ref .bar span { background: var(--bar-ref); }
   figcaption { margin-top: var(--s-3); }
-  @media (prefers-reduced-motion: no-preference) {
-    .bar span { animation: grow var(--dur-draw) var(--ease-out) both; animation-delay: 220ms; transform-origin: left; }
-  }
+  .bar span { transform-origin: left; }
+  :global(html.motion) .fig:not(.in) .bar span { transform: scaleX(0.02); }
+  :global(html.motion) .fig.in .bar span { animation: grow 1100ms var(--ease-out) both; }
+  :global(html.motion) .fig.in tr:nth-child(2) .bar span { animation-delay: 60ms; }
+  :global(html.motion) .fig.in tr:nth-child(3) .bar span { animation-delay: 120ms; }
+  :global(html.motion) .fig.in tr:nth-child(n+4) .bar span { animation-delay: 180ms; }
   @keyframes grow { from { transform: scaleX(0.02); } to { transform: scaleX(1); } }
   @media (max-width: 480px) { th { white-space: normal; width: 34%; } }
 </style>
