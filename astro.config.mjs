@@ -15,4 +15,7 @@ export default defineConfig({
   // Pages are static; /admin opts out with `prerender = false` and runs as a Vercel function.
   output: 'static',
   adapter: vercel(),
+  // Astro's built-in check compares Origin with Vercel's internal URL and rejects real logins.
+  // src/middleware.ts does the same check against the forwarded host instead.
+  security: { checkOrigin: false },
 });
