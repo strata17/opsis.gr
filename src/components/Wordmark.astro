@@ -7,7 +7,7 @@ const { size = '1.875rem', tone = 'ink' } = Astro.props;
   <svg viewBox="0 0 100 100" aria-hidden="true">
     <path fill-rule="evenodd" d="M0 50 A50 50 0 1 0 100 50 A50 50 0 1 0 0 50 Z M24 50 A26 38 0 1 1 76 50 A26 38 0 1 1 24 50 Z" />
     <circle cx="50" cy="50" r="11" />
-  </svg><span aria-hidden="true">ΨΙΣ</span>
+  </svg><span class="letters" aria-hidden="true"><span>Ψ</span><span>Ι</span><span>Σ</span></span>
 </span>
 <style>
   .wm {
@@ -18,10 +18,16 @@ const { size = '1.875rem', tone = 'ink' } = Astro.props;
   .wm svg { width: 0.74em; height: 0.74em; margin-right: 0.05em; margin-bottom: -0.012em; flex: none; }
   .wm path { fill: currentColor; }
   .wm circle { fill: var(--pupil); }
-  :global(html.eye-open .mast) .wm path { transform-box: fill-box; transform-origin: center; animation: lid 1000ms var(--ease-out) 250ms both; }
-  :global(html.eye-open .mast) .wm circle { transform-box: fill-box; transform-origin: center; animation: pupil 600ms var(--ease-out) 900ms both; }
-  @keyframes lid { 0% { transform: scaleY(0.08); } 100% { transform: scaleY(1); } }
-  @keyframes pupil { 0% { transform: scale(0); } 70% { transform: scale(1.25); } 100% { transform: scale(1); } }
+  .letters { display: inline-flex; overflow: hidden; padding-bottom: 0.08em; margin-bottom: -0.08em; }
+  .letters span { display: inline-block; }
+  /* Homepage intro (EyeIntro): the masthead O appears as the flying O lands, then ΨΙΣ rises letter by letter. */
+  :global(html.eye-open:not(.eye-skip) .mast) svg { animation: wm-show 1ms linear 1590ms both; }
+  :global(html.eye-open:not(.eye-skip) .mast) .letters span { animation: wm-rise 420ms var(--ease-out) both; }
+  :global(html.eye-open:not(.eye-skip) .mast) .letters span:nth-child(1) { animation-delay: 1500ms; }
+  :global(html.eye-open:not(.eye-skip) .mast) .letters span:nth-child(2) { animation-delay: 1560ms; }
+  :global(html.eye-open:not(.eye-skip) .mast) .letters span:nth-child(3) { animation-delay: 1620ms; }
+  @keyframes wm-show { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes wm-rise { from { transform: translateY(115%); } to { transform: translateY(0); } }
   .wm.marble { color: var(--c-marble); }
   .wm.marble circle { fill: var(--c-cinnabar-lift); }
 </style>

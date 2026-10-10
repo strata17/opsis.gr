@@ -11,6 +11,12 @@
         ],
         "createdAt": "2026-10-10T09:45:04.199Z",
         "reason": "brand-pinned: Pentelic Marble #E8E6DF ground from 03_brand_kit/opsis-brand-kit.html (Marble Edition)"
+      },
+      {
+        "rule": "bounce-easing",
+        "value": "cubic-bezier(0.34, 1.56, 0.64, 1)",
+        "createdAt": "2026-10-10T10:34:14.149Z",
+        "reason": "brand: pupil pop matches eOutBack easing in 06_video_toolkit/example_project/pasok.html ending"
       }
     ]
   }

@@ -1,0 +1,45 @@
+---
+// Homepage intro, after the video endings: the O opens centred, flies into the masthead, ΨΙΣ rises.
+// Only shown when the head script sets html.eye-open (homepage, motion allowed). CSS alone hides it at 1.6s.
+---
+<div class="intro" aria-hidden="true">
+  <svg class="big" viewBox="0 0 100 100">
+    <path fill-rule="evenodd" d="M0 50 A50 50 0 1 0 100 50 A50 50 0 1 0 0 50 Z M24 50 A26 38 0 1 1 76 50 A26 38 0 1 1 24 50 Z" />
+    <circle cx="50" cy="50" r="11" />
+  </svg>
+</div>
+<script>
+  const root = document.documentElement;
+  if (root.classList.contains('eye-open')) {
+    const big = document.querySelector<SVGElement>('.intro .big');
+    const target = document.querySelector<SVGElement>('.mast .wm svg');
+    const skip = () => root.classList.add('eye-skip');
+    addEventListener('pointerdown', skip, { once: true });
+    addEventListener('keydown', skip, { once: true });
+    if (big && target && 'animate' in big) {
+      setTimeout(() => {
+        if (root.classList.contains('eye-skip')) return;
+        const a = big.getBoundingClientRect(), b = target.getBoundingClientRect();
+        const dx = b.left + b.width / 2 - (a.left + a.width / 2);
+        const dy = b.top + b.height / 2 - (a.top + a.height / 2);
+        big.animate(
+          [{ transform: 'translate(0,0) scale(1)' }, { transform: `translate(${dx}px,${dy}px) scale(${b.width / a.width})` }],
+          { duration: 480, easing: 'cubic-bezier(0.65, 0, 0.35, 1)', fill: 'forwards' },
+        );
+      }, 1120);
+    }
+  }
+</script>
+<style>
+  .intro { display: none; }
+  :global(html.eye-open:not(.eye-skip)) .intro {
+    display: grid; place-items: center; position: fixed; inset: 0; z-index: 50; pointer-events: none;
+    background: var(--bg); animation: intro-out 480ms cubic-bezier(0.65, 0, 0.35, 1) 1120ms forwards;
+  }
+  .big { width: min(42vw, 15rem); height: auto; color: var(--mark); }
+  .big path { fill: currentColor; transform-box: fill-box; transform-origin: center; animation: lid 800ms var(--ease-out) 100ms both; }
+  .big circle { fill: var(--pupil); transform-box: fill-box; transform-origin: center; animation: pupil 380ms cubic-bezier(0.34, 1.56, 0.64, 1) 820ms both; }
+  @keyframes lid { from { transform: scaleY(0.06); } to { transform: scaleY(1); } }
+  @keyframes pupil { from { transform: scale(0); } to { transform: scale(1); } }
+  @keyframes intro-out { 0% { background-color: var(--bg); } 99% { visibility: visible; } 100% { background-color: transparent; visibility: hidden; } }
+</style>
