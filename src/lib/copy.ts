@@ -12,6 +12,8 @@ export const copy = {
     week: (n: number) => `Εβδομάδα ${n}`,
     count: (n: number) => (n === 1 ? '1 θέμα' : `${n} θέματα`),
     contents: 'Σε αυτό το τεύχος',
+    weekLabel: 'Εβδομάδα',
+    motto: 'Τι δείχνουν πραγματικά οι αριθμοί.',
     readLead: 'Διάβασε την ανάλυση',
     readData: 'Δες τα στοιχεία',
     readComment: 'Διάβασε το σχόλιο',

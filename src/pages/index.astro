@@ -18,12 +18,17 @@ const claimPiece = items.find((t) => t.data.type === 'elegxos' && t.data.claims?
 <Base current="/">
   {lead && week ? (
     <>
-      <div class="issuebar">
-        <div class="wrap mono row">
-          <span><strong>{copy.issue.week(week.week)}</strong> · {weekRange(week.monday, week.sunday)}</span>
-          <span>{copy.issue.count(pieces.length)}</span>
+      <section class="issue" aria-label={copy.issue.week(week.week)}>
+        <div class="wrap issue-in">
+          <p class="num"><span class="visually-hidden">{copy.issue.weekLabel} </span>{week.week}</p>
+          <div class="meta">
+            <p class="mono"><strong>{copy.issue.weekLabel}</strong></p>
+            <p class="mono">{weekRange(week.monday, week.sunday)}</p>
+            <p class="mono">{copy.issue.count(pieces.length)}</p>
+          </div>
+          <p class="motto">{copy.issue.motto}</p>
         </div>
-      </div>
+      </section>
 
       <section class="wrap spread" aria-labelledby="lead-title">
         <article class="lead">
@@ -122,9 +127,16 @@ const claimPiece = items.find((t) => t.data.type === 'elegxos' && t.data.claims?
 </Base>
 
 <style>
-  .issuebar { border-bottom: var(--hair) solid var(--rule); }
-  .issuebar .row { display: flex; justify-content: space-between; gap: var(--s-4); padding-block: var(--s-3); }
-
+  .issue { background: var(--fg); color: var(--bg); }
+  .issue-in { display: grid; grid-template-columns: auto auto 1fr; align-items: end; column-gap: var(--s-6); padding-block: var(--s-5) var(--s-5); }
+  .num { font-family: var(--font-display); font-weight: 600; font-size: var(--fs-issue); line-height: 0.8; letter-spacing: -0.03em; font-variant-numeric: lining-nums; }
+  .issue .mono { color: var(--bg); opacity: 0.72; line-height: 1.7; }
+  .issue .mono strong { color: var(--bg); opacity: 1; }
+  .motto { justify-self: end; text-align: right; font-family: var(--font-display); font-weight: 400; font-style: italic; font-size: var(--fs-h2); line-height: 1.1; max-width: 14em; text-wrap: balance; }
+  @media (max-width: 720px) {
+    .issue-in { grid-template-columns: auto 1fr; row-gap: var(--s-4); }
+    .motto { grid-column: 1 / -1; justify-self: start; text-align: left; font-size: var(--fs-h3); }
+  }
   .spread {
     display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
     column-gap: var(--s-8); padding-block: var(--s-7) var(--s-8);
