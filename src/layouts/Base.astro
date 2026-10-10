@@ -21,7 +21,12 @@ const fullTitle = title ? `${title} · Opsis` : 'Opsis · Καθαρή ματι�
     <script is:inline>
       if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
         document.documentElement.classList.add('motion');
-        if (location.pathname === '/') document.documentElement.classList.add('eye-open');
+        // Homepage: the full intro once per visit (browser session), then the in-place eye opening.
+        if (location.pathname === '/') {
+          let seen = false;
+          try { seen = sessionStorage.getItem('opsis-intro') === '1'; sessionStorage.setItem('opsis-intro', '1'); } catch {}
+          document.documentElement.classList.add(seen ? 'eye-blink' : 'eye-open');
+        }
       }
       try { const t = localStorage.getItem('opsis-theme'); if (t === 'dark' || t === 'light') document.documentElement.dataset.theme = t; } catch {}
       if ((document.documentElement.dataset.theme ?? (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')) === 'dark')
