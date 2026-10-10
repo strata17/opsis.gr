@@ -127,11 +127,11 @@ const claimPiece = items.find((t) => t.data.type === 'elegxos' && t.data.claims?
 </Base>
 
 <style>
-  .issue { background: var(--fg); color: var(--bg); }
+  .issue { background: var(--band-bg); color: var(--band-fg); border-bottom: var(--hair) solid var(--rule); }
   .issue-in { display: grid; grid-template-columns: auto auto 1fr; align-items: end; column-gap: var(--s-6); padding-block: var(--s-5) var(--s-5); }
   .num { font-family: var(--font-display); font-weight: 600; font-size: var(--fs-issue); line-height: 0.8; letter-spacing: -0.03em; font-variant-numeric: lining-nums; }
-  .issue .mono { color: var(--bg); opacity: 0.72; line-height: 1.7; }
-  .issue .mono strong { color: var(--bg); opacity: 1; }
+  .issue .mono { color: var(--band-fg); opacity: 0.72; line-height: 1.7; }
+  .issue .mono strong { color: var(--band-fg); opacity: 1; }
   .motto { justify-self: end; text-align: right; font-family: var(--font-display); font-weight: 400; font-style: italic; font-size: var(--fs-h2); line-height: 1.1; max-width: 14em; text-wrap: balance; }
   @media (max-width: 720px) {
     .issue-in { grid-template-columns: auto 1fr; row-gap: var(--s-4); }

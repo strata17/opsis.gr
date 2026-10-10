@@ -32,6 +32,8 @@
   --foot-fg: var(--c-marble);
   --foot-muted: var(--c-ash);
   --foot-accent: var(--c-cinnabar-lift);
+  --band-bg: var(--c-ink);
+  --band-fg: var(--c-marble);
   color-scheme: light;
 
   /* Type families */
@@ -96,6 +98,8 @@
   --foot-fg: var(--c-marble);
   --foot-muted: var(--c-ash);
   --foot-accent: var(--c-cinnabar-lift);
+  --band-bg: var(--c-ink-raised);
+  --band-fg: var(--c-marble);
   color-scheme: dark;
 }
 @media (prefers-color-scheme: dark) {
@@ -120,6 +124,8 @@
     --foot-fg: var(--c-marble);
     --foot-muted: var(--c-ash);
     --foot-accent: var(--c-cinnabar-lift);
+    --band-bg: var(--c-ink-raised);
+    --band-fg: var(--c-marble);
     color-scheme: dark;
   }
 }
