@@ -21,7 +21,7 @@ facts:
   - { label: "Βουλγαρία", value: "68" }
   - { label: "Λετονία", value: "71" }
 sources:
-  - { name: "Eurostat", detail: "Πραγματικές ώρες εργασίας 2025, εργαζόμενοι 20–64, κύρια απασχόληση, 27/5/2026" }
+  - { name: "Eurostat", detail: "Πραγματικές ώρες εργασίας 2025, εργαζόμενοι 20–64, κύρια απασχόληση, 27/5/2026", url: "https://ec.europa.eu/eurostat/web/products-eurostat-news/w/ddn-20260527-1" }
   - { name: "Eurostat", detail: "ΑΕΠ κατά κεφαλήν σε μονάδες αγοραστικής δύναμης 2025, προκαταρκτικά" }
 ---
 

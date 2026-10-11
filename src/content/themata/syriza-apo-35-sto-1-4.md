@@ -25,7 +25,7 @@ facts:
   - { label: "GPO", value: "1,3%" }
 sources:
   - { name: "Υπουργείο Εσωτερικών", detail: "Αποτελέσματα εκλογών 2015, 2019, 2023" }
-  - { name: "topontiki.gr", detail: "Συγκέντρωση πέντε δημοσκοπήσεων, 21/9/2026" }
+  - { name: "topontiki.gr", detail: "Συγκέντρωση πέντε δημοσκοπήσεων, 21/9/2026", url: "https://www.topontiki.gr/2026/09/21/siriza-apo-komma-exousias-sti-machi-politikis-epiviosis-ti-apokaliptoun-pente-dimoskopisis/" }
   - { name: "bankingnews.gr", detail: "Παραίτηση του Σ. Φάμελλου, 9/7/2026" }
 method: "Το 1,4% είναι ο μέσος όρος της πρόθεσης ψήφου στις πέντε δημοσκοπήσεις του Σεπτεμβρίου 2026. Δεν είναι εκτίμηση ψήφου, και τα εκλογικά αποτελέσματα των προηγούμενων ετών μετρούν έγκυρα ψηφοδέλτια, όχι πρόθεση ψήφου."
 ---

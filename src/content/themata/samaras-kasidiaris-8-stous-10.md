@@ -13,8 +13,8 @@ facts:
   - { label: "Κόμμα Σαμαρά: «σίγουρα» · «ίσως» · «σε καμία περίπτωση»", value: "4% · 14% · 80%" }
   - { label: "Κόμμα Κασιδιάρη: «σίγουρα» · «ίσως» · «σε καμία περίπτωση»", value: "8% · 9% · 81%" }
 sources:
-  - { name: "Palmos Analysis για το TheOpinion", detail: "14–18/9/2026, δείγμα 1.021, ±3,1%, μέσω thetoc.gr" }
-method: "Δείχνουμε τις τρεις απαντήσεις όπως δημοσιεύθηκαν, για κάθε πιθανό κόμμα χωριστά."
+  - { name: "Palmos Analysis για το TheOpinion", detail: "14–18/9/2026, δείγμα 1.021, ±3,1%, μέσω thetoc.gr", url: "https://www.thetoc.gr/politiki/article/dimoskopisi-palmos-analysis-301-i-nd-proti-i-elas-stis-ilikies-17-eos-34---dusaresti-ekplixi-o-kasidiaris/" }
+method: "Δείχνουμε τις τρεις απαντήσεις όπως δημοσιεύθηκαν, για κάθε πιθανό κόμμα χωριστά. Οι συνεντεύξεις έγιναν κατά 73% τηλεφωνικά και 27% διαδικτυακά."
 ---
 
 Στη δημοσκόπηση της Palmos Analysis για το TheOpinion (14–18/9/2026, δείγμα 1.021, ±3,1%) ρωτήθηκε αν θα ψήφιζαν κόμμα του Αντώνη Σαμαρά ή του Ηλία Κασιδιάρη.
