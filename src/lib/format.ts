@@ -3,6 +3,11 @@ const months = [
   'Ιουλίου', 'Αυγούστου', 'Σεπτεμβρίου', 'Οκτωβρίου', 'Νοεμβρίου', 'Δεκεμβρίου',
 ];
 
+const monthsNominative = [
+  'Ιανουάριος', 'Φεβρουάριος', 'Μάρτιος', 'Απρίλιος', 'Μάιος', 'Ιούνιος',
+  'Ιούλιος', 'Αύγουστος', 'Σεπτέμβριος', 'Οκτώβριος', 'Νοέμβριος', 'Δεκέμβριος',
+];
+
 const pad = (n: number) => String(n).padStart(2, '0');
 
 /** 10.10.26, for the register. */
@@ -11,6 +16,9 @@ export const shortDate = (d: Date) =>
 
 /** 10 Οκτωβρίου 2026, for prose. */
 export const longDate = (d: Date) => `${d.getUTCDate()} ${months[d.getUTCMonth()]} ${d.getUTCFullYear()}`;
+
+/** Οκτώβριος 2026, for the issue bar. */
+export const monthYear = (d: Date) => `${monthsNominative[d.getUTCMonth()]} ${d.getUTCFullYear()}`;
 
 /** ISO week number and its Monday–Sunday range. */
 export function isoWeek(d: Date) {

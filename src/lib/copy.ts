@@ -13,6 +13,8 @@ export const copy = {
     count: (n: number) => (n === 1 ? '1 θέμα' : `${n} θέματα`),
     contents: 'Σε αυτό το τεύχος',
     weekLabel: 'Εβδομάδα',
+    issueLabel: 'Τεύχος',
+    issueAria: (n: number) => `Τεύχος ${String(n).padStart(2, '0')}`,
     motto: 'Τι δείχνουν πραγματικά οι αριθμοί.',
     readLead: 'Διάβασε την ανάλυση',
     readData: 'Δες τα στοιχεία',

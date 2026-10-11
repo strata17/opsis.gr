@@ -9,6 +9,10 @@ export const topics = {
   oikonomia: 'Οικονομία',
   ergasia: 'Εργασία',
   nea_kommata: 'Νέα κόμματα',
+  ekloges: 'Εκλογές',
+  kke: 'ΚΚΕ',
+  agrotes: 'Αγρότες',
+  kriti: 'Κρήτη',
 } as const;
 export type Topic = keyof typeof topics;
 export const topicHref = (t: string) => `/thema/${t}/`;
