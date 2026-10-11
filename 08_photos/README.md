@@ -32,3 +32,17 @@ Photos used on the site are copied to `src/assets/photos/` and credited in each 
 | pasok_andr3 | Nikos Androulakis, outdoors | MISSING |  |
 
 Credits come from `07_credits`. Rows marked CHECK have two possible sources in those notes; MISSING have none. Confirm these before using them on the site.
+
+## Credit verification (2026-10-11)
+
+Each file below was compared against the Commons original (perceptual hash, 0–8 of 256 bits differ; an unrelated pair differs by 98). Author and licence were read from the Commons file page.
+
+| File used | Commons file | Author | Licence |
+|---|---|---|---|
+| pasok_andr1 | File:Nikos Androulakis PASOK.jpg | Basilispanagou | CC BY-SA 4.0 |
+| 12_perissos | File:Edra KKE Perissos.jpg | Dimkoa | Public domain |
+| 11_chania | File:Chania, old harbour with lighthouse 2019.jpg | Cayambe | CC BY-SA 4.0 |
+| 7_sam1 | File:Antonis Samaras October 2014.jpg | European People's Party | CC BY 2.0 |
+| 13_ermou | File:Ermou Street on December 17, 2020.jpg | George E. Koronaios | CC BY-SA 4.0 |
+
+Still unchecked: the Tsipras and Koutsoumbas photos (marked CHECK above), pasok_andr2 and pasok_andr3.

@@ -11,23 +11,25 @@ import Closing from '../components/Closing.astro';
 import LeadPhoto from '../components/LeadPhoto.astro';
 import { copy } from '../lib/copy';
 import { currentIssue, href } from '../lib/themata';
-import { shortDate, weekRange } from '../lib/format';
+import { shortDate, weekRange, monthYear } from '../lib/format';
 
-const { lead, pieces, week, items } = await currentIssue();
+const { lead, pieces, week, issue, items: allItems } = await currentIssue();
+// A real issue never shows placeholder pieces beside it.
+const items = lead?.data.sample ? allItems : allItems.filter((t) => !t.data.sample);
 const rest = pieces.slice(1);
 const dataPiece = items.find((t) => t.data.type === 'dedomena' && t.data.figure && t !== lead);
 const readLabel = { analysi: copy.issue.readLead, dedomena: copy.issue.readData, sxolio: copy.issue.readComment, elegxos: copy.issue.readClaim };
 const claimPiece = items.find((t) => t.data.type === 'elegxos' && t.data.claims?.length);
 ---
-<Base current="/">
+<Base current="/" sample={lead?.data.sample ?? true}>
   {lead && week ? (
     <>
-      <section class="issue" aria-label={copy.issue.week(week.week)}>
+      <section class="issue" aria-label={issue !== undefined ? copy.issue.issueAria(issue) : copy.issue.week(week.week)}>
         <div class="wrap issue-in">
-          <p class="num"><span class="visually-hidden">{copy.issue.weekLabel} </span>{week.week}</p>
+          <p class="num"><span class="visually-hidden">{issue !== undefined ? copy.issue.issueLabel : copy.issue.weekLabel} </span>{issue !== undefined ? String(issue).padStart(2, '0') : week.week}</p>
           <div class="meta">
-            <p class="mono"><strong>{copy.issue.weekLabel}</strong></p>
-            <p class="mono">{weekRange(week.monday, week.sunday)}</p>
+            <p class="mono"><strong>{issue !== undefined ? copy.issue.issueLabel : copy.issue.weekLabel}</strong></p>
+            <p class="mono">{issue !== undefined ? monthYear(lead.data.date) : weekRange(week.monday, week.sunday)}</p>
             <p class="mono">{copy.issue.count(pieces.length)}</p>
           </div>
           <p class="motto">{copy.issue.motto}</p>

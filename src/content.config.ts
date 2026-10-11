@@ -46,8 +46,10 @@ const themata = defineCollection({
     }).optional(),
     video: z.object({ url: z.string().url(), platform: z.string(), duration: z.string().optional() }).optional(),
     corrections: z.array(z.object({ date: z.coerce.date(), text: z.string() })).default([]),
-    topics: z.array(z.enum(['pasok', 'elas', 'syriza', 'kentroaristera', 'dimoskopiseis', 'kyvernisi', 'oikonomia', 'ergasia', 'nea_kommata'])).default([]),
+    topics: z.array(z.enum(['pasok', 'elas', 'syriza', 'kentroaristera', 'dimoskopiseis', 'kyvernisi', 'oikonomia', 'ergasia', 'nea_kommata', 'ekloges', 'kke', 'agrotes', 'kriti'])).default([]),
     lead: z.boolean().default(false),
+    issue: z.number().int().optional(), // numbered issue (τεύχος); pieces with the lead's number form the issue, by `order`
+    order: z.number().int().optional(), // position in the issue: 1 = lead, 2–3 = second row, 4+ = list
     sample: z.boolean().default(false),
   }),
 });
