@@ -2,6 +2,7 @@
 title: "Τρεις φράσεις που ακούμε συχνά, και τι λένε οι αριθμοί"
 photo: { src: "../../assets/photos/4_forms23.jpg", alt: "Στοίβες ψηφοδελτίων πάνω σε θρανία εκλογικού τμήματος, Μάιος 2023.", credit: "FocalPoint, Wikimedia Commons, CC BY-SA 4.0 · Επεξεργασία: Opsis", position: "50% 50%" }
 dek: "Για τις ώρες εργασίας, τα μέτρα της ΔΕΘ και το δημόσιο χρέος. Κάθε φράση δίπλα στο στοιχείο που την ελέγχει, με την πηγή του."
+topics: [oikonomia, ergasia, kyvernisi]
 type: elegxos
 date: 2026-10-09
 sample: true

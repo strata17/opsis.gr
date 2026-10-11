@@ -3,6 +3,7 @@ title: "Ελπίδα για τη Δημοκρατία: 5,2% στην πρώτη 
 keyFigure: "5,2%"
 photo: { src: "../../assets/photos/5_ballots23.jpg", alt: "Ψηφοδέλτια των εκλογών του Ιουνίου 2023 πάνω σε τραπέζι εκλογικού τμήματος.", credit: "NikosLikomitros, Wikimedia Commons, CC0 · Επεξεργασία: Opsis", position: "50% 50%" }
 dek: "Το νέο κόμμα εμφανίζεται έκτο στην εκτίμηση ψήφου της Palmos Analysis. Τι μετρήθηκε, σε ποιο δείγμα, και γιατί μία δημοσκόπηση δεν είναι τάση."
+topics: [dimoskopiseis, nea_kommata]
 type: dedomena
 date: 2026-10-08
 sample: true

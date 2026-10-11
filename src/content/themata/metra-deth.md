@@ -3,6 +3,7 @@ title: "Μέτρα ΔΕΘ: το 48% λέει ότι δεν ωφελείται κ
 keyFigure: "48%"
 photo: { src: "../../assets/photos/9_mit2.jpg", alt: "Ο πρωθυπουργός Κυριάκος Μητσοτάκης μιλά σε βήμα.", credit: "European People's Party, Wikimedia Commons, CC BY 2.0 · Επεξεργασία: Opsis", position: "50% 22%" }
 dek: "Μόλις το 2% απαντά ότι τα μέτρα το ωφελούν πολύ. Τι ρωτήθηκε ακριβώς και τι δείχνει η απάντηση για την εικόνα της κυβέρνησης."
+topics: [dimoskopiseis, kyvernisi, oikonomia]
 type: dedomena
 date: 2026-10-06
 sample: true

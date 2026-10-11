@@ -93,3 +93,4 @@ h1, h2, h3 {
 
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 button:active, .read:active { transform: translateY(1px); }
+main:has(> .closing:last-child) + footer { margin-top: 0; }

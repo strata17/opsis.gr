@@ -1,0 +1,22 @@
+---
+import Base from '../../layouts/Base.astro';
+import FilterBar from '../../components/FilterBar.astro';
+import RegisterTable from '../../components/RegisterTable.astro';
+import TopicList from '../../components/TopicList.astro';
+import { allThemata } from '../../lib/themata';
+const items = await allThemata();
+---
+<Base title="Αρχείο" current="/arxeio/" description="Όλα τα θέματα της Opsis, με ημερομηνία και πηγή.">
+  <section class="wrap page">
+    <h1>Αρχείο</h1>
+    <p class="dek">Όλα τα θέματα, από το πιο πρόσφατο. Κάθε γραμμή με την πηγή της.</p>
+    <FilterBar items={items} current="all" />
+    <RegisterTable items={items} />
+    <TopicList items={items} />
+  </section>
+</Base>
+<style>
+  .page { padding-top: var(--s-7); }
+  h1 { font-size: var(--fs-title); }
+  .dek { margin: var(--s-3) 0 var(--s-6); color: var(--fg-soft); font-size: var(--fs-dek); max-width: var(--measure); }
+</style>

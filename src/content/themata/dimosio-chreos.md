@@ -3,6 +3,7 @@ title: "Το χρέος στο 143,5% του ΑΕΠ: το υψηλότερο σ�
 keyFigure: "143,5%"
 photo: { src: "../../assets/photos/13_ermou.jpg", alt: "Η οδός Ερμού στην Αθήνα με περαστικούς, σε ασπρόμαυρη φωτογραφία.", credit: "George E. Koronaios, Wikimedia Commons, CC BY-SA 4.0 · Επεξεργασία: Opsis", position: "50% 55%" }
 dek: "360,1 δισ. ευρώ στο τέλος του α΄ τριμήνου 2026, περίπου 34.600 ευρώ ανά κάτοικο. Τι μετράει ο δείκτης και τι δεν λέει για το κόστος εξυπηρέτησης."
+topics: [oikonomia]
 type: dedomena
 date: 2026-07-24
 sample: true

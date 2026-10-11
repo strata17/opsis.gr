@@ -46,6 +46,7 @@ const themata = defineCollection({
     }).optional(),
     video: z.object({ url: z.string().url(), platform: z.string(), duration: z.string().optional() }).optional(),
     corrections: z.array(z.object({ date: z.coerce.date(), text: z.string() })).default([]),
+    topics: z.array(z.enum(['pasok', 'elas', 'syriza', 'kentroaristera', 'dimoskopiseis', 'kyvernisi', 'oikonomia', 'ergasia', 'nea_kommata'])).default([]),
     lead: z.boolean().default(false),
     sample: z.boolean().default(false),
   }),

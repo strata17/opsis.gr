@@ -32,3 +32,9 @@ This shows followers, total likes, video count and the last 10 videos with views
 
 ## Website traffic
 Enable **Web Analytics** in the Vercel project (Analytics tab). The site already loads the script; it uses no cookies.
+
+## Newsletter (Buttondown)
+1. Create an account at buttondown.com and turn on **double opt-in** (Settings → Subscribing).
+2. Copy the API key (Settings → API) and set `BUTTONDOWN_API_KEY` in Vercel, then redeploy.
+
+Until the key is set, the signup form explains that the newsletter isn't available yet. Subscribers are stored only in Buttondown and are tagged `site`.

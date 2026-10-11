@@ -1,0 +1,29 @@
+---
+import Base from '../../layouts/Base.astro';
+import RegisterTable from '../../components/RegisterTable.astro';
+import { allThemata } from '../../lib/themata';
+import { topics, type Topic } from '../../lib/topics';
+
+export async function getStaticPaths() {
+  const items = await allThemata();
+  return (Object.keys(topics) as Topic[])
+    .map((topic) => ({ topic, list: items.filter((i) => i.data.topics.includes(topic)) }))
+    .filter((x) => x.list.length > 0)
+    .map(({ topic, list }) => ({ params: { topic }, props: { topic, list } }));
+}
+const { topic, list } = Astro.props;
+---
+<Base title={topics[topic]} current="/arxeio/" description={`Όλα τα θέματα της Opsis για: ${topics[topic]}.`}>
+  <section class="wrap page">
+    <p class="crumb"><a href="/arxeio/">Αρχείο</a></p>
+    <h1>{topics[topic]}</h1>
+    <p class="dek">{list.length === 1 ? '1 θέμα' : `${list.length} θέματα`}, από το πιο πρόσφατο.</p>
+    <RegisterTable items={list} />
+  </section>
+</Base>
+<style>
+  .page { padding-top: var(--s-6); }
+  .crumb { font-size: var(--fs-small); font-weight: 500; margin-bottom: var(--s-4); }
+  h1 { font-size: var(--fs-title); }
+  .dek { margin: var(--s-3) 0 var(--s-6); color: var(--fg-soft); font-size: var(--fs-dek); }
+</style>

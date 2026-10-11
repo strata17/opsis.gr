@@ -252,6 +252,12 @@ The brand's claim-versus-facts move, from the carousels. Two columns under an in
 ### Lead Photo
 One graded black-and-white photograph per lead story, the same treatment as the videos (`06_video_toolkit/grade.py`). It is cropped 16:9 with an adjustable focal point, shown under the source line on the homepage lead and on the article, and followed by a mono credit line. It is optional, and a piece reads complete without it.
 
+### Archive, Filters and Topics
+`/arxeio/` lists every piece in the Register table (`RegisterTable.astro`). Above it, filter links by type (Όλα, Αναλύσεις, Δεδομένα, Σχόλια, Έλεγχοι), each with a mono count; the active filter gets the accent underline, as in the nav. Each type has a static page, `/arxeio/<type>/`. Topic pages live at `/thema/<topic>/`; topics are set per piece in frontmatter (`topics: [...]`) from the list in `src/lib/topics.ts`. They appear as underlined links with counts under the archive, and as «Σχετικά θέματα» at the end of each article. The homepage shows the 8 latest register rows and a link to the full archive.
+
+### Closing Band and Newsletter
+The last block on the homepage and on every article, after the carousels' closing slide. «Κάθε εβδομάδα, με πηγές.» at display size, a one-line explanation, then the email signup: a label above the field, the field and an ink submit button joined in one strong hairline box, and the fine print below. A rule separates the platform links underneath. The form posts to `/api/subscribe` (Buttondown, double opt-in) and works without JavaScript. Results go to `/newsletter/ok/` and `/newsletter/error/`. A hidden field catches bots.
+
 ### Bar Figure
 Charts are accessible tables with a caption. Bars are 14px solid rectangles: ink by default, Ash for reference rows, cinnabar for the one highlighted row, whose label and value also go to 600 and cinnabar. Values are mono tabular, right-aligned. Source in a mono figcaption.
 

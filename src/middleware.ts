@@ -12,7 +12,7 @@ function sameOrigin(req: Request) {
 
 export const onRequest = defineMiddleware(async (ctx, next) => {
   const { pathname } = ctx.url;
-  if (pathname.startsWith('/admin') && ctx.request.method === 'POST' && !sameOrigin(ctx.request)) {
+  if ((pathname.startsWith('/admin') || pathname.startsWith('/api')) && ctx.request.method === 'POST' && !sameOrigin(ctx.request)) {
     return new Response('Forbidden', { status: 403 });
   }
   const isLogin = pathname === '/admin/login' || pathname === '/admin/login/';

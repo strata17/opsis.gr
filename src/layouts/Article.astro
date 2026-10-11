@@ -7,6 +7,8 @@ import Headline from '../components/Headline.astro';
 import ClaimLedger from '../components/ClaimLedger.astro';
 import VideoSlot from '../components/VideoSlot.astro';
 import LeadPhoto from '../components/LeadPhoto.astro';
+import TopicList from '../components/TopicList.astro';
+import Closing from '../components/Closing.astro';
 import { copy } from '../lib/copy';
 import { longDate } from '../lib/format';
 import type { Thema } from '../lib/themata';
@@ -16,7 +18,7 @@ const d = thema.data;
 ---
 <Base title={d.title} description={d.dek} current="" sample={d.sample} image={`/og/${thema.id}.png`}>
   <article class="wrap article">
-    <a class="back" href="/#arxeio"><Arrow dir="left" />{copy.article.back}</a>
+    <a class="back" href="/arxeio/"><Arrow dir="left" />{copy.article.back}</a>
     <header class="head">
       <h1><Headline title={d.title} figure={d.keyFigure} /></h1>
       <p class="dek">{d.dek}</p>
@@ -72,7 +74,9 @@ const d = thema.data;
         </ul>
       )}
     </section>
+    <TopicList only={d.topics} heading="Σχετικά θέματα" />
   </article>
+  <Closing />
 </Base>
 <style>
   .article { max-width: calc(46rem + 2 * var(--gutter)); padding-top: var(--s-6); }

@@ -5,6 +5,9 @@ import BarFigure from '../components/BarFigure.astro';
 import Arrow from '../components/Arrow.astro';
 import Headline from '../components/Headline.astro';
 import ClaimLedger from '../components/ClaimLedger.astro';
+import RegisterTable from '../components/RegisterTable.astro';
+import FilterBar from '../components/FilterBar.astro';
+import Closing from '../components/Closing.astro';
 import LeadPhoto from '../components/LeadPhoto.astro';
 import { copy } from '../lib/copy';
 import { currentIssue, href } from '../lib/themata';
@@ -101,31 +104,12 @@ const claimPiece = items.find((t) => t.data.type === 'elegxos' && t.data.claims?
 
   <section id="arxeio" class="wrap register" aria-labelledby="register-title">
     <h2 id="register-title">{copy.register.heading}</h2>
-    {items.length === 0 ? (
-      <p class="empty">{copy.register.empty}</p>
-    ) : (
-      <table>
-        <thead>
-          <tr class="mono">
-            <th scope="col">{copy.register.columns.date}</th>
-            <th scope="col">{copy.register.columns.type}</th>
-            <th scope="col">{copy.register.columns.title}</th>
-            <th scope="col" class="src">{copy.register.columns.source}</th>
-          </tr>
-        </thead>
-        <tbody>
-          {items.map((t, i) => (
-            <tr class="rule-top" style={`--i:${i}`}>
-              <td class="mono date"><time datetime={t.data.date.toISOString().slice(0, 10)}>{shortDate(t.data.date)}</time></td>
-              <td class="mono kind">{copy.types[t.data.type]}</td>
-              <th scope="row" class="title"><a href={href(t)}>{t.data.title}</a></th>
-              <td class="mono src">{t.data.sourceLine}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    )}
+    <FilterBar items={items} current="all" />
+    <RegisterTable items={items.slice(0, 8)} />
+    <a class="read all" href="/arxeio/">Όλο το αρχείο<Arrow /></a>
   </section>
+
+  <Closing />
 </Base>
 
 <style>
@@ -183,23 +167,17 @@ const claimPiece = items.find((t) => t.data.type === 'elegxos' && t.data.claims?
 
   .register { padding-top: var(--s-8); }
   .register h2 { font-size: var(--fs-h2); margin-bottom: var(--s-5); }
-  .register table { width: 100%; border-collapse: collapse; }
-  .register thead tr { box-shadow: inset 0 calc(-1 * var(--hair)) 0 var(--rule-strong); }
-  .register thead th { text-align: left; font-weight: 400; padding: 0 var(--s-5) var(--s-3) 0; }
-  .register td, .register tbody th { padding: var(--s-4) var(--s-5) var(--s-4) 0; vertical-align: baseline; text-align: left; }
-  .register tbody tr:last-child { box-shadow: inset 0 calc(-1 * var(--hair)) 0 var(--rule); }
-  .register .date { width: 7rem; white-space: nowrap; }
-  .register .kind { width: 8rem; color: var(--fg); }
-  .register tbody tr { position: relative; }
-  .register .title a::after { content: ''; position: absolute; inset: 0; }
-  .register .title { font-family: var(--font-display); font-weight: 600; font-size: var(--fs-h3); line-height: var(--lh-head); }
-  .register .src, .register thead th.src { text-align: right; padding-right: 0; width: 16rem; }
-  .register tbody tr:hover { background-color: var(--surface); }
   .empty { color: var(--fg-muted); padding-block: var(--s-6); }
 
   @media (max-width: 960px) {
-    .spread { grid-template-columns: 1fr; row-gap: var(--s-7); padding-block: var(--s-6); }
+    .spread { grid-template-columns: 1fr; row-gap: 0; padding-block: var(--s-6); }
     .contents { border-left: 0; padding-left: 0; }
+    /* Mobile order: headline, dek, source, photo, then this week's contents, then the facts. */
+    .lead { display: contents; }
+    .spread :global(> .lead > *) { order: 1; }
+    .spread :global(> .contents) { order: 2; margin-block: var(--s-7) var(--s-2); }
+    .spread :global(> .lead > .facts), .spread :global(> .lead > .read) { order: 3; }
+    .facts tr:nth-child(n + 3) { display: none; }
     .contents li.current { display: none; }
     .data .grid { grid-template-columns: 1fr; gap: var(--s-6); }
   }
@@ -209,11 +187,5 @@ const claimPiece = items.find((t) => t.data.type === 'elegxos' && t.data.claims?
     .facts th, .facts td { padding: 0; }
     .facts td:nth-child(2) { grid-column: 1 / -1; grid-row: 2; }
     .facts .when { grid-row: 1; grid-column: 2; }
-    .register thead { display: none; }
-    .register tbody tr { display: grid; grid-template-columns: auto 1fr; column-gap: var(--s-4); row-gap: var(--s-2); padding-block: var(--s-4); }
-    .register td, .register tbody th { padding: 0; width: auto; }
-    .register .title { grid-column: 1 / -1; grid-row: 2; }
-    .register .src { grid-column: 1 / -1; text-align: left; }
-    .register tbody tr:hover { background-color: transparent; }
   }
 </style>

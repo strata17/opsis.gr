@@ -1,0 +1,25 @@
+---
+// Archive filters as plain links (work without JavaScript). Counts per type.
+import { typePlural, typeSlugs } from '../lib/topics';
+import type { Thema } from '../lib/themata';
+interface Props { items: Thema[]; current: 'all' | keyof typeof typeSlugs }
+const { items, current } = Astro.props;
+const count = (t: keyof typeof typeSlugs) => items.filter((i) => i.data.type === t).length;
+const types = (Object.keys(typeSlugs) as (keyof typeof typeSlugs)[]).filter((t) => count(t) > 0);
+---
+<nav class="filters" aria-label="Φίλτρα αρχείου">
+  <ul>
+    <li><a href="/arxeio/" aria-current={current === 'all' ? 'page' : undefined}>Όλα <span class="n">{items.length}</span></a></li>
+    {types.map((t) => (
+      <li><a href={`/arxeio/${typeSlugs[t]}/`} aria-current={current === t ? 'page' : undefined}>{typePlural[t]} <span class="n">{count(t)}</span></a></li>
+    ))}
+  </ul>
+</nav>
+<style>
+  .filters { margin-bottom: var(--s-5); }
+  ul { display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-5); list-style: none; }
+  a { display: inline-block; padding: var(--s-2) 0; font-weight: 500; font-size: var(--fs-small); text-decoration: none; border-bottom: 1.5px solid transparent; }
+  a:hover { border-color: var(--rule-strong); }
+  a[aria-current='page'] { border-color: var(--accent); }
+  .n { font-family: var(--font-mono); font-size: var(--fs-num); color: var(--fg-muted); font-variant-numeric: tabular-nums; margin-left: 0.2em; }
+</style>

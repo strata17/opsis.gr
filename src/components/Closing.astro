@@ -1,0 +1,45 @@
+---
+// Closing band, after the carousels' closing slide: one line, the newsletter, the platforms.
+import { copy } from '../lib/copy';
+---
+<section class="closing" id="newsletter" aria-labelledby="closing-title">
+  <div class="wrap in">
+    <div class="say">
+      <h2 id="closing-title">{copy.closing.title}</h2>
+      <p>{copy.closing.body}</p>
+    </div>
+    <form method="post" action="/api/subscribe" class="nl">
+      <label for="nl-email">{copy.closing.label}</label>
+      <div class="row">
+        <input id="nl-email" name="email" type="email" autocomplete="email" inputmode="email" required placeholder="onoma@email.gr" />
+        <button type="submit">{copy.closing.submit}</button>
+      </div>
+      <div class="hp" aria-hidden="true"><label>Website <input name="website" tabindex="-1" autocomplete="off" /></label></div>
+      <p class="fine">{copy.closing.fine}</p>
+    </form>
+    <p class="follow">
+      <span>{copy.closing.follow}</span>
+      <span class="links">{copy.footer.links.map((l) => <a href={l.href} rel="me noopener">{l.label}</a>)}</span>
+    </p>
+  </div>
+</section>
+<style>
+  .closing { margin-top: var(--s-9); border-top: var(--hair) solid var(--rule-strong); }
+  .in { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: var(--s-6) var(--s-8); padding-block: var(--s-8); align-items: end; }
+  h2 { font-size: var(--fs-display); line-height: var(--lh-display); letter-spacing: var(--track-display); }
+  .say p { margin-top: var(--s-4); font-size: var(--fs-dek); color: var(--fg-soft); max-width: 36ch; }
+  label { display: block; font-weight: 500; margin-bottom: var(--s-2); }
+  .row { display: flex; gap: 0; border: var(--hair) solid var(--rule-strong); }
+  input { flex: 1; min-width: 0; font: inherit; padding: var(--s-3) var(--s-4); background: var(--bg); color: var(--fg); border: 0; border-radius: 0; }
+  input::placeholder { color: var(--fg-muted); }
+  input:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+  button { font: 500 var(--fs-body) var(--font-text); background: var(--fg); color: var(--bg); border: 0; padding: var(--s-3) var(--s-5); cursor: pointer; white-space: nowrap; transition: background-color var(--dur-quick) ease-out; }
+  button:hover { background: var(--accent); color: var(--c-marble); }
+  .fine { margin-top: var(--s-2); font-size: var(--fs-small); color: var(--fg-muted); }
+  .hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+  .follow { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-5); align-items: baseline; padding-top: var(--s-5); border-top: var(--hair) solid var(--rule); font-size: var(--fs-small); color: var(--fg-muted); }
+  .links { display: inline-flex; flex-wrap: wrap; gap: var(--s-2) var(--s-5); }
+  .links a { color: var(--fg); font-weight: 500; padding-block: var(--s-2); }
+  .links a:hover { text-decoration-color: var(--accent); }
+  @media (max-width: 860px) { .in { grid-template-columns: 1fr; padding-block: var(--s-7); } }
+</style>

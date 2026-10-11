@@ -5,7 +5,7 @@ export const copy = {
   skip: 'Μετάβαση στο περιεχόμενο',
   nav: [
     { href: '/', label: 'Η εβδομάδα' },
-    { href: '/#arxeio', label: 'Αρχείο' },
+    { href: '/arxeio/', label: 'Αρχείο' },
     { href: '/methodos/', label: 'Μέθοδος' },
   ],
   issue: {
@@ -64,6 +64,14 @@ export const copy = {
     ],
     handle: '@opsis.gr',
     privacy: 'Απόρρητο',
+  },
+  closing: {
+    title: 'Κάθε εβδομάδα, με πηγές.',
+    body: 'Τα θέματα της εβδομάδας στο email σου, μία φορά την εβδομάδα. Χωρίς διαφημίσεις.',
+    label: 'Το email σου',
+    submit: 'Εγγραφή',
+    fine: 'Μπορείς να διαγραφείς με ένα κλικ, όποτε θέλεις.',
+    follow: 'Ή ακολούθησε την Opsis:',
   },
   theme: {
     label: 'Θέμα',

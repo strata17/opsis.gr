@@ -1,0 +1,25 @@
+---
+// Topic chips as a plain inline list: used under the archive and at the end of articles.
+import { topicHref, topics, type Topic } from '../lib/topics';
+import type { Thema } from '../lib/themata';
+interface Props { items?: Thema[]; only?: Topic[]; heading?: string }
+const { items = [], only, heading = 'Θέματα' } = Astro.props;
+const list = only ?? (Object.keys(topics) as Topic[]).filter((t) => items.some((i) => i.data.topics.includes(t)));
+const n = (t: Topic) => items.filter((i) => i.data.topics.includes(t)).length;
+---
+{list.length > 0 && (
+  <nav class="topics" aria-label={heading}>
+    <h2>{heading}</h2>
+    <ul>
+      {list.map((t) => <li><a href={topicHref(t)}>{topics[t]}{!only && <span class="n">{n(t)}</span>}</a></li>)}
+    </ul>
+  </nav>
+)}
+<style>
+  .topics { margin-top: var(--s-7); }
+  h2 { font-size: var(--fs-h3); margin-bottom: var(--s-3); }
+  ul { display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-5); list-style: none; }
+  a { display: inline-block; padding: var(--s-2) 0; font-weight: 500; text-decoration: underline; text-decoration-color: var(--rule-strong); text-decoration-thickness: 1px; text-underline-offset: 0.25em; }
+  a:hover { text-decoration-color: var(--accent); }
+  .n { font-family: var(--font-mono); font-size: var(--fs-num); color: var(--fg-muted); margin-left: 0.35em; }
+</style>
