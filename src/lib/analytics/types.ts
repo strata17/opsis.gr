@@ -5,7 +5,7 @@ export type Platform =
   | { status: 'error'; name: string; message: string };
 // Trim whitespace and stray quotes: pasted keys often carry a newline or surrounding quotes.
 export const env = (k: string) => {
-  const v = ((import.meta.env[k] as string | undefined) ?? process.env[k])?.trim().replace(/^['"]|['"]$/g, '');
+  const v = process.env[k]?.trim().replace(/^['"]|['"]$/g, '');
   return v || undefined;
 };
 export async function getJSON(url: string, init?: RequestInit) {

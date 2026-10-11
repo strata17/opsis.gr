@@ -21,6 +21,7 @@ const fullTitle = title ? `${title} · Opsis` : 'Opsis · Καθαρή ματι�
     <script is:inline>
       if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
         document.documentElement.classList.add('motion');
+        setTimeout(() => { if (!window.__opsisMotion) document.documentElement.classList.remove('motion'); }, 2500);
         // Homepage: the full intro once per visit (browser session), then the in-place eye opening.
         if (location.pathname === '/') {
           let seen = false;

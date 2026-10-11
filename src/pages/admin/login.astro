@@ -1,19 +1,25 @@
 ---
 export const prerender = false;
 import Admin from '../../layouts/Admin.astro';
-import { COOKIE, checkPassword, configured, cookieOptions, sessionToken } from '../../lib/auth';
+import { COOKIE, blocked, checkPassword, clearFails, configured, cookieOptions, recordFail, sessionToken } from '../../lib/auth';
 
 let error = '';
-if (Astro.request.method === 'POST') {
+const ip = Astro.request.headers.get('x-forwarded-for')?.split(',')[0].trim() ?? Astro.clientAddress ?? 'unknown';
+if (Astro.request.method === 'POST' && blocked(ip)) {
+  error = 'Πολλές αποτυχημένες προσπάθειες. Δοκίμασε ξανά σε 15 λεπτά.';
+} else if (Astro.request.method === 'POST') {
   const form = await Astro.request.formData();
   if (checkPassword(String(form.get('password') ?? ''))) {
+    clearFails(ip);
     Astro.cookies.set(COOKIE, sessionToken(), cookieOptions);
     return Astro.redirect('/admin', 303);
   }
+  recordFail(ip);
   await new Promise((r) => setTimeout(r, 800)); // slow down guessing
   error = 'Λάθος κωδικός. Δοκίμασε ξανά.';
 }
 Astro.response.headers.set('Cache-Control', 'no-store');
+Astro.response.headers.set('X-Robots-Tag', 'noindex, nofollow');
 ---
 <Admin title="Σύνδεση">
   <section class="login">

@@ -5,6 +5,7 @@
 * { margin: 0; padding: 0; }
 
 html {
+  scroll-padding-top: var(--s-6);
   background: var(--bg);
   color: var(--fg);
   -webkit-text-size-adjust: 100%;
@@ -17,7 +18,7 @@ body {
   font-kerning: normal;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
 }
@@ -89,3 +90,6 @@ h1, h2, h3 {
   from { background-size: 0% var(--hair); }
   to { background-size: 100% var(--hair); }
 }
+
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+button:active, .read:active { transform: translateY(1px); }

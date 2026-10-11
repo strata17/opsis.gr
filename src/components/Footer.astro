@@ -10,6 +10,7 @@ import { copy } from '../lib/copy';
       {copy.footer.follow} <strong>{copy.footer.handle}</strong>:
       {copy.footer.links.map((l, i) => (<>{i > 0 && ' · '}<a href={l.href} rel="me noopener">{l.label}</a></>))}
     </p>
+    <p class="legal"><a href="/aporrito/">{copy.footer.privacy}</a></p>
   </div>
 </footer>
 <style>
@@ -18,6 +19,8 @@ import { copy } from '../lib/copy';
   .statement, .follow { font-size: var(--fs-small); }
   .statement { max-width: 46ch; }
   .follow { color: var(--foot-muted); }
+  .legal { grid-column: 1 / -1; font-size: var(--fs-small); color: var(--foot-muted); }
+  .legal a { color: var(--foot-muted); }
   .follow strong { color: var(--foot-fg); font-weight: 500; }
   .follow a { color: var(--foot-fg); display: inline-block; padding-block: var(--s-2); }
   .follow a:hover { text-decoration-color: var(--foot-accent); }

@@ -1,5 +1,6 @@
 // Scroll-triggered motion. Content is fully visible without this script; with reduced motion it never runs.
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+(window as any).__opsisMotion = true; // tells the head script the motion layer loaded
 
 const parse = (s: string) => {
   const m = s.match(/^([^\d]*)([\d.]+(?:,\d+)?)(.*)$/);

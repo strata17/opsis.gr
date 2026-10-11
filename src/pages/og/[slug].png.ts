@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro';
 import { allThemata } from '../../lib/themata';
-import { renderCard } from '../../og/render';
+import { renderCard, type Card } from '../../og/render';
 import { copy } from '../../lib/copy';
 import { shortDate } from '../../lib/format';
 
@@ -15,5 +15,5 @@ export async function getStaticPaths() {
   ];
 }
 
-export const GET: APIRoute = async ({ props }) =>
-  new Response(await renderCard((props as any).card), { headers: { 'Content-Type': 'image/png' } });
+export const GET: APIRoute<{ card: Card }> = async ({ props }) =>
+  new Response(await renderCard(props.card), { headers: { 'Content-Type': 'image/png' } });

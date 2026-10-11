@@ -63,6 +63,7 @@ export const copy = {
       { label: 'YouTube @opsismedia', href: 'https://www.youtube.com/@opsismedia' },
     ],
     handle: '@opsis.gr',
+    privacy: 'Απόρρητο',
   },
   theme: {
     label: 'Θέμα',

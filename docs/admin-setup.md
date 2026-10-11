@@ -5,7 +5,7 @@ The private dashboard lives at `/admin`. It is server-rendered on Vercel, behind
 All values go in **Vercel → opsis-gr → Settings → Environment Variables** (Production). Redeploy after adding them.
 
 ## 1. Password (required)
-`ADMIN_PASSWORD`: at least 12 characters. Until it is set, the login page shows a setup note and nobody can sign in. Changing it signs every session out.
+`ADMIN_PASSWORD`: at least 12 characters; use a long random one. Optional `ADMIN_SESSION_EPOCH`: change it (for example 1 → 2) to sign out every session. Sessions last 3 days. For a hard limit on login attempts, add a Vercel Firewall rate-limit rule on `POST /admin/login`. Until it is set, the login page shows a setup note and nobody can sign in. Changing it signs every session out.
 
 ## 2. YouTube (easiest, about 5 minutes)
 1. Go to console.cloud.google.com, create a project and enable **YouTube Data API v3**.
