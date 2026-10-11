@@ -3,10 +3,10 @@ import mdx from '@astrojs/mdx';
 import vercel from '@astrojs/vercel';
 
 // Absolute URLs (share images, canonical) use SITE_URL when set; on Vercel they fall back to the
-// project's production domain, so previews work before opsis.gr is connected.
+// project's production domain, so previews work before opsismedia.gr is connected.
 const site =
   process.env.SITE_URL ??
-  (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : 'https://opsis.gr');
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : 'https://opsismedia.gr');
 
 export default defineConfig({
   site,

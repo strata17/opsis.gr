@@ -44,7 +44,7 @@ export async function renderCard(card: Card) {
     h('div', { flexGrow: 1, alignItems: 'center', paddingTop: 12 }, [headline(card.title, card.keyFigure)]),
     h('div', { borderTop: `2px solid ${C.ink}`, paddingTop: 18, justifyContent: 'space-between', fontFamily: 'JetBrains Mono', fontWeight: 500, fontSize: 19, letterSpacing: '0.1em', color: C.slate }, [
       h('span', { color: C.ink }, caps(card.meta)),
-      h('span', {}, caps(card.source ? `Πηγή: ${card.source}` : 'opsis.gr')),
+      h('span', {}, caps(card.source ? `Πηγή: ${card.source}` : 'opsismedia.gr')),
     ]),
   ]);
   const svg = await satori(tree as any, { width: 1200, height: 630, fonts });
