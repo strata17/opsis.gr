@@ -20,7 +20,7 @@ const d = thema.data;
     <header class="head">
       <h1><Headline title={d.title} figure={d.keyFigure} /></h1>
       <p class="dek">{d.dek}</p>
-      <SourceLine meta={`${copy.types[d.type]} · ${longDate(d.date)}`} text={d.sourceLine} label={d.sources.length > 1 ? copy.sources : copy.source} processed={d.type !== 'sxolio'} />
+      <SourceLine meta={[copy.types[d.type], longDate(d.date)]} text={d.sourceLine} label={d.sources.length > 1 ? copy.sources : copy.source} processed={d.type !== 'sxolio'} />
     </header>
 
     {d.photo && <div class="block"><LeadPhoto {...d.photo} eager /></div>}

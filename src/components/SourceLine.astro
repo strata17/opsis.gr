@@ -1,9 +1,14 @@
 ---
+// Type and date as spaced items, then the brand kit's line: ΠΗΓΗ: … · ΕΠΕΞΕΡΓΑΣΙΑ: OPSIS (one dot).
 import { copy } from '../lib/copy';
-interface Props { text: string; label?: string; processed?: boolean; meta?: string }
-const { text, label = copy.source, processed = true, meta } = Astro.props;
+interface Props { text: string; label?: string; processed?: boolean; meta?: string[] }
+const { text, label = copy.source, processed = true, meta = [] } = Astro.props;
 ---
 <p class="mono source">
-  {meta && <span class="meta">{meta} · </span>}{label}: <strong>{text}</strong>{processed && <span> · {copy.processing}</span>}
+  {meta.map((m) => <span class="meta">{m}</span>)}
+  <span class="src">{label}: <strong>{text}</strong>{processed && <> · {copy.processing}</>}</span>
 </p>
-<style>.meta { color: var(--fg); }</style>
+<style>
+  .source { display: flex; flex-wrap: wrap; column-gap: 1.6em; row-gap: 0.2em; }
+  .meta { color: var(--fg); }
+</style>

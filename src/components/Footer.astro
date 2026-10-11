@@ -8,7 +8,7 @@ import { copy } from '../lib/copy';
     <p class="statement">{copy.footer.statement}</p>
     <p class="follow">
       {copy.footer.follow} <strong>{copy.footer.handle}</strong>:
-      {copy.footer.links.map((l, i) => (<>{i > 0 && ' · '}<a href={l.href} rel="me noopener">{l.label}</a></>))}
+      <span class="links">{copy.footer.links.map((l) => <a href={l.href} rel="me noopener">{l.label}</a>)}</span>
     </p>
     <p class="legal"><a href="/aporrito/">{copy.footer.privacy}</a></p>
   </div>
@@ -23,6 +23,7 @@ import { copy } from '../lib/copy';
   .legal a { color: var(--foot-muted); }
   .follow strong { color: var(--foot-fg); font-weight: 500; }
   .follow a { color: var(--foot-fg); display: inline-block; padding-block: var(--s-2); }
+  .links { display: inline-flex; flex-wrap: wrap; column-gap: 1.1em; margin-left: 0.4em; }
   .follow a:hover { text-decoration-color: var(--foot-accent); }
   .foot :global(::selection) { background: var(--foot-fg); color: var(--foot-bg); }
   @media (max-width: 760px) { .inner { grid-template-columns: 1fr; gap: var(--s-4); } }

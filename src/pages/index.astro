@@ -35,7 +35,7 @@ const claimPiece = items.find((t) => t.data.type === 'elegxos' && t.data.claims?
         <article class="lead">
           <h1 id="lead-title"><a href={href(lead)}><Headline title={lead.data.title} figure={lead.data.keyFigure} /></a></h1>
           <p class="dek">{lead.data.dek}</p>
-          <SourceLine meta={`${copy.types[lead.data.type]} · ${shortDate(lead.data.date)}`} text={lead.data.sourceLine} label={lead.data.sources.length > 1 ? copy.sources : copy.source} />
+          <SourceLine meta={[copy.types[lead.data.type], shortDate(lead.data.date)]} text={lead.data.sourceLine} label={lead.data.sources.length > 1 ? copy.sources : copy.source} />
           {lead.data.photo && <div class="lead-photo"><LeadPhoto {...lead.data.photo} eager /></div>}
           {lead.data.facts && (
             <table class="facts">
@@ -91,7 +91,7 @@ const claimPiece = items.find((t) => t.data.type === 'elegxos' && t.data.claims?
         <div>
           <h2 id="data-title"><a href={href(dataPiece)}><Headline title={dataPiece.data.title} figure={dataPiece.data.keyFigure} /></a></h2>
           <p class="dek">{dataPiece.data.dek}</p>
-          <SourceLine meta={`${copy.types.dedomena} · ${shortDate(dataPiece.data.date)}`} text={dataPiece.data.sourceLine} />
+          <SourceLine meta={[copy.types.dedomena, shortDate(dataPiece.data.date)]} text={dataPiece.data.sourceLine} />
           <a class="read" href={href(dataPiece)}>{copy.issue.readData}<Arrow /></a>
         </div>
         <BarFigure {...dataPiece.data.figure} />
