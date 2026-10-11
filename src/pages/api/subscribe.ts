@@ -21,9 +21,11 @@ export const POST: APIRoute = async ({ request, redirect }) => {
     });
     if (r.ok) return redirect('/newsletter/ok/', 303);
     const body = await r.text();
+    console.error('[subscribe] buttondown', r.status, body.slice(0, 300)); // reply only, never the key
     if (r.status === 400 && /already|exists/i.test(body)) return redirect('/newsletter/ok/', 303);
     return redirect('/newsletter/error/', 303);
-  } catch {
+  } catch (e) {
+    console.error('[subscribe] request failed', (e as Error).message);
     return redirect('/newsletter/error/', 303);
   }
 };
