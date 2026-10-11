@@ -4,6 +4,7 @@ import Masthead from '../components/Masthead.astro';
 import Footer from '../components/Footer.astro';
 import SampleNotice from '../components/SampleNotice.astro';
 import EyeIntro from '../components/EyeIntro.astro';
+import Analytics from '@vercel/analytics/astro';
 import { copy } from '../lib/copy';
 interface Props { title?: string; description?: string; current?: string; sample?: boolean; image?: string }
 const { title, description = copy.footer.statement, current = '/', sample = true, image = '/og/index.png' } = Astro.props;
@@ -38,7 +39,7 @@ const fullTitle = title ? `${title} · Opsis` : 'Opsis · Καθαρή ματι�
     <link rel="preload" href="/fonts/ibm-plex-sans-greek-400-normal.woff2" as="font" type="font/woff2" crossorigin />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
-    <script defer src="/_vercel/insights/script.js"></script>
+    <Analytics />
     <meta property="og:locale" content="el_GR" />
     <meta property="og:type" content="article" />
     <meta property="og:image" content={imageUrl} />
