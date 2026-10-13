@@ -9,6 +9,7 @@ import VideoSlot from '../components/VideoSlot.astro';
 import LeadPhoto from '../components/LeadPhoto.astro';
 import TopicList from '../components/TopicList.astro';
 import Closing from '../components/Closing.astro';
+import SignupStrip from '../components/SignupStrip.astro';
 import { copy } from '../lib/copy';
 import { longDate } from '../lib/format';
 import type { Thema } from '../lib/themata';
@@ -48,6 +49,8 @@ const d = thema.data;
     )}
 
     <div class="prose"><slot /></div>
+
+    <div class="after"><SignupStrip id="article" contained /></div>
 
     <section class="apparatus rule-top-strong" aria-labelledby="sources-title">
       <h2 id="sources-title">{copy.article.sources}</h2>
@@ -93,6 +96,7 @@ const d = thema.data;
   .dek { margin: var(--s-5) 0 var(--s-4); font-size: var(--fs-dek); line-height: 1.55; color: var(--fg-soft); }
   .note { margin-top: var(--s-6); padding: var(--s-4) var(--s-5); background: var(--surface); font-weight: 500; }
   .block { margin-top: var(--s-7); }
+  .after { margin-top: var(--s-7); }
   .facts { width: 100%; border-collapse: collapse; }
   .facts tr:last-child { box-shadow: inset 0 calc(-1 * var(--hair)) 0 var(--rule); }
   .facts th, .facts td { padding: var(--s-3) var(--s-4) var(--s-3) 0; text-align: left; vertical-align: baseline; }

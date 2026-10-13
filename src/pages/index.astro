@@ -8,6 +8,7 @@ import ClaimLedger from '../components/ClaimLedger.astro';
 import RegisterTable from '../components/RegisterTable.astro';
 import FilterBar from '../components/FilterBar.astro';
 import Closing from '../components/Closing.astro';
+import SignupStrip from '../components/SignupStrip.astro';
 import LeadPhoto from '../components/LeadPhoto.astro';
 import { copy } from '../lib/copy';
 import { currentIssue, href } from '../lib/themata';
@@ -35,6 +36,8 @@ const claimPiece = items.find((t) => t.data.type === 'elegxos' && t.data.claims?
           <p class="motto">{copy.issue.motto}</p>
         </div>
       </section>
+
+      <SignupStrip id="top" />
 
       <section class="wrap spread" aria-labelledby="lead-title">
         <article class="lead">
