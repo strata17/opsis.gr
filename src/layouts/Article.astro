@@ -10,6 +10,7 @@ import LeadPhoto from '../components/LeadPhoto.astro';
 import TopicList from '../components/TopicList.astro';
 import Closing from '../components/Closing.astro';
 import SignupStrip from '../components/SignupStrip.astro';
+import AdSlot from '../components/AdSlot.astro';
 import { copy } from '../lib/copy';
 import { longDate } from '../lib/format';
 import type { Thema } from '../lib/themata';
@@ -77,6 +78,7 @@ const d = thema.data;
         </ul>
       )}
     </section>
+    <AdSlot />
     <TopicList only={d.topics} heading="Σχετικά θέματα" />
   </article>
   <Closing />

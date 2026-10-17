@@ -6,6 +6,7 @@ import SampleNotice from '../components/SampleNotice.astro';
 import EyeIntro from '../components/EyeIntro.astro';
 import Analytics from '@vercel/analytics/astro';
 import { copy } from '../lib/copy';
+import { adsClient } from '../lib/ads';
 interface Props { title?: string; description?: string; current?: string; sample?: boolean; image?: string }
 const { title, description = copy.footer.statement, current = '/', sample = true, image = '/og/index.png' } = Astro.props;
 const imageUrl = new URL(image, Astro.site ?? Astro.url).href;
@@ -19,6 +20,7 @@ const fullTitle = title ? `${title} · Opsis` : 'Opsis · Καθαρή ματι�
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <meta name="theme-color" content="#E8E6DF" />
+    {adsClient && <script is:inline async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsClient}`} crossorigin="anonymous"></script>}
     <script is:inline>
       if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
         document.documentElement.classList.add('motion');

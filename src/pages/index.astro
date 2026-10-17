@@ -9,6 +9,7 @@ import RegisterTable from '../components/RegisterTable.astro';
 import FilterBar from '../components/FilterBar.astro';
 import Closing from '../components/Closing.astro';
 import SignupStrip from '../components/SignupStrip.astro';
+import AdSlot from '../components/AdSlot.astro';
 import LeadPhoto from '../components/LeadPhoto.astro';
 import { copy } from '../lib/copy';
 import { currentIssue, href } from '../lib/themata';
@@ -106,6 +107,8 @@ const claimPiece = items.find((t) => t.data.type === 'elegxos' && t.data.claims?
       </div>
     </section>
   )}
+
+  <div class="wrap"><AdSlot /></div>
 
   <section id="arxeio" class="wrap register" aria-labelledby="register-title">
     <h2 id="register-title">{copy.register.heading}</h2>

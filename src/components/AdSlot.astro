@@ -1,0 +1,22 @@
+---
+// One labelled ad unit. Renders nothing until AdSense is configured (src/lib/ads.ts), and hides itself
+// when Google has no ad to show, so readers never see an empty box.
+import { adsClient, adsSlot } from '../lib/ads';
+import { copy } from '../lib/copy';
+---
+{adsClient && adsSlot && (
+  <aside class="ad" aria-label={copy.ad.label}>
+    <p class="mono">{copy.ad.label}</p>
+    <ins class="adsbygoogle" style="display:block" data-ad-client={adsClient} data-ad-slot={adsSlot} data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script is:inline>(window.adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </aside>
+)}
+<style>
+  .ad { margin-block: var(--s-7); padding-top: var(--s-3); border-top: var(--hair) solid var(--rule); min-height: 7rem; }
+  .ad .mono { margin-bottom: var(--s-2); }
+</style>
+<style is:global>
+  /* Collapsed until Google reports a filled ad, so ad-blockers and empty auctions leave no gap.
+     Height 0 (not display:none) keeps the width, which AdSense needs to size a responsive unit. */
+  aside.ad:not(:has(ins[data-ad-status='filled'])) { height: 0; min-height: 0; margin: 0; padding: 0; border: 0; overflow: hidden; }
+</style>

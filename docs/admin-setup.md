@@ -38,3 +38,12 @@ Enable **Web Analytics** in the Vercel project (Analytics tab). The site already
 2. Copy the API key (Settings → API) and set `BUTTONDOWN_API_KEY` in Vercel, then redeploy.
 
 Until the key is set, the signup form explains that the newsletter isn't available yet. Subscribers are stored only in Buttondown and are tagged `site`.
+
+## 5. Ads (Google AdSense)
+Off by default. The site loads no ad code and the privacy page keeps its "no cookies" wording until both values below are set, then redeploy (they are read at build time and are public, not secrets).
+1. In AdSense, add `opsismedia.gr` and wait for the site to be approved.
+2. Under Privacy & messaging, create and publish the **GDPR message** (Google's free, certified consent tool). Google requires a certified CMP for EEA and UK visitors; without it ads there are limited or do not serve.
+3. Under Ads → By ad unit, create a **Display ad** (responsive) and copy its numeric ad-unit ID.
+4. Set `PUBLIC_ADSENSE_CLIENT` (looks like `ca-pub-1234567890123456`) and `PUBLIC_ADSENSE_SLOT` (the numeric ad-unit ID).
+5. `/ads.txt` is generated from the publisher ID. Check it at opsismedia.gr/ads.txt.
+Slots: one on the homepage (before the archive) and one on each article (after sources). They show a «Διαφήμιση» label and hide themselves when Google has no ad. In AdSense → Blocking controls, block political and sensitive categories so party ads do not sit next to fact-checks.
