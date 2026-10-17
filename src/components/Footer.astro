@@ -17,18 +17,19 @@ import { adsEnabled } from '../lib/ads';
     </p>
     {adsEnabled && (
       <script is:inline>
-        /* Google's consent tool (Privacy & messaging) defines googlefc once its message is published.
-           The reopen link stays hidden until that API is ready, so it never appears as a dead button. */
+        /* Reopen link for Google's consent tool (AdSense Privacy & messaging). */
         window.googlefc = window.googlefc || {};
         googlefc.callbackQueue = googlefc.callbackQueue || [];
-        googlefc.callbackQueue.push({
-          CONSENT_API_READY: function () {
-            var b = document.getElementById('cookie-settings');
-            if (!b) return;
-            b.hidden = false;
-            b.addEventListener('click', function () { googlefc.showRevocationMessage(); });
-          },
-        });
+        function setupCookieLink() {
+          var b = document.getElementById('cookie-settings');
+          if (!b || !b.hidden || typeof googlefc.showRevocationMessage !== 'function') return;
+          b.hidden = false;
+          b.addEventListener('click', function () { googlefc.showRevocationMessage(); });
+        }
+        /* Google only provides showRevocationMessage when a consent message is active for the visitor,
+           so the link is shown only then and never as a dead button. */
+        googlefc.callbackQueue.push({ CONSENT_API_READY: setupCookieLink });
+        googlefc.callbackQueue.push({ CONSENT_DATA_READY: setupCookieLink });
       </script>
     )}
   </div>
