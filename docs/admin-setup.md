@@ -47,3 +47,5 @@ Off by default. The site loads no ad code and the privacy page keeps its "no coo
 4. Set `PUBLIC_ADSENSE_CLIENT` (looks like `ca-pub-1234567890123456`) and `PUBLIC_ADSENSE_SLOT` (the numeric ad-unit ID).
 5. `/ads.txt` is generated from the publisher ID. Check it at opsismedia.gr/ads.txt.
 Slots: one on the homepage (before the archive) and one on each article (after sources). They show a «Διαφήμιση» label and hide themselves when Google has no ad. In AdSense → Blocking controls, block political and sensitive categories so party ads do not sit next to fact-checks.
+
+Status: `PUBLIC_ADSENSE_CLIENT` is set in Vercel (Production) to the opsismedia.gr publisher ID `ca-pub-2665785138816863`, which loads the AdSense script for site verification and generates `/ads.txt`. `PUBLIC_ADSENSE_SLOT` is not set yet, so no ad slots render. Auto ads are switched off in AdSense so only these labelled slots can show ads.
