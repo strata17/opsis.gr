@@ -66,6 +66,7 @@ export const copy = {
     ],
     handle: '@opsis.gr',
     privacy: 'Απόρρητο',
+    cookies: 'Ρυθμίσεις cookies',
   },
   closing: {
     title: 'Κάθε εβδομάδα, με πηγές.',

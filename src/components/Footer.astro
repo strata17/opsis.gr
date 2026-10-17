@@ -1,6 +1,7 @@
 ---
 import Wordmark from './Wordmark.astro';
 import { copy } from '../lib/copy';
+import { adsEnabled } from '../lib/ads';
 ---
 <footer class="foot">
   <div class="wrap inner">
@@ -10,7 +11,26 @@ import { copy } from '../lib/copy';
       {copy.footer.follow} <strong>{copy.footer.handle}</strong>:
       <span class="links">{copy.footer.links.map((l) => <a href={l.href} rel="me noopener">{l.label}</a>)}</span>
     </p>
-    <p class="legal"><a href="/aporrito/">{copy.footer.privacy}</a></p>
+    <p class="legal">
+      <a href="/aporrito/">{copy.footer.privacy}</a>
+      {adsEnabled && <button type="button" class="cookies" id="cookie-settings" hidden>{copy.footer.cookies}</button>}
+    </p>
+    {adsEnabled && (
+      <script is:inline>
+        /* Google's consent tool (Privacy & messaging) defines googlefc once its message is published.
+           The reopen link stays hidden until that API is ready, so it never appears as a dead button. */
+        window.googlefc = window.googlefc || {};
+        googlefc.callbackQueue = googlefc.callbackQueue || [];
+        googlefc.callbackQueue.push({
+          CONSENT_API_READY: function () {
+            var b = document.getElementById('cookie-settings');
+            if (!b) return;
+            b.hidden = false;
+            b.addEventListener('click', function () { googlefc.showRevocationMessage(); });
+          },
+        });
+      </script>
+    )}
   </div>
 </footer>
 <style>
@@ -21,6 +41,8 @@ import { copy } from '../lib/copy';
   .follow { color: var(--foot-muted); }
   .legal { grid-column: 1 / -1; font-size: var(--fs-small); color: var(--foot-muted); }
   .legal a { color: var(--foot-muted); }
+  .cookies { font: inherit; color: var(--foot-muted); background: none; border: 0; padding: 0 0 0 1.1em; cursor: pointer; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+  .cookies:hover { text-decoration-color: var(--foot-accent); }
   .follow strong { color: var(--foot-fg); font-weight: 500; }
   .follow a { color: var(--foot-fg); display: inline-block; padding-block: var(--s-2); }
   .links { display: inline-flex; flex-wrap: wrap; column-gap: 1.1em; margin-left: 0.4em; }
